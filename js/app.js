@@ -84,6 +84,15 @@ const PAGES = [
     code: 'DK-07',
     sectionLabel: null,
   },
+  {
+    id: 'tourism',
+    title: 'Tourism & Travel',
+    icon: '🧭',
+    file: 'content/tourism.md',
+    desc: 'Sightseeing in/out of Copenhagen, student/budget discounts, public transport, and bike rules',
+    code: 'DK-08',
+    sectionLabel: null,
+  },
 ];
 
 // ============================================================
@@ -499,7 +508,9 @@ function indexPageForSearch(page, meta, body) {
 
   fuseInstance = new Fuse(searchIndex, {
     keys: ['text', 'pageTitle'],
-    threshold: 0.35,
+    threshold: 0.45,
+    distance: 1000,
+    ignoreLocation: true,
     minMatchCharLength: 2,
   });
 }
