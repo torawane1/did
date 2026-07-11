@@ -1326,6 +1326,29 @@ body::after {
   color: var(--text-bright);
 }
 
+.site-footer {
+  margin-top: var(--s10);
+  padding-top: var(--s6);
+  border-top: 1px dashed var(--border);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
+.site-footer a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--t);
+  border-bottom: 1px dashed var(--cyan-border);
+}
+.site-footer a:hover {
+  color: var(--cyan-bright);
+  text-shadow: var(--glow-text);
+  border-bottom-color: var(--cyan);
+}
+
 /* ============================================================
    ERROR STATE
    ============================================================ */
