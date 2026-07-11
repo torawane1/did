@@ -22,7 +22,6 @@
   /* Lined Paper Colors */
   --paper-bg:     #faf6ee;
   --paper-border: #e6dfce;
-  --margin-line:  #f0a0a0; /* ruled paper pink margin line */
   
   /* Ink Colors */
   --ink-dark:     #2c2b29; /* readable charcoal */
@@ -547,16 +546,7 @@ body::after {
   font-size: 1.02rem;
   line-height: 1.7;
 }
-.markdown-body::before {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 64px; /* offset of the margin line */
-  width: 1px;
-  background: var(--margin-line);
-  opacity: 0.6;
-  pointer-events: none;
-}
+
 
 /* Faint page numbering details */
 .diary-page-number {
@@ -964,16 +954,7 @@ body::after {
   border-bottom: 1px dashed var(--paper-border);
   position: relative;
 }
-.page-hud::before {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 64px; /* aligned with left margin line */
-  width: 1px;
-  background: var(--margin-line);
-  opacity: 0.6;
-  pointer-events: none;
-}
+
 .hud-top-bar {
   display: flex;
   align-items: center;
@@ -1048,16 +1029,7 @@ body::after {
   position: relative;
   margin-top: auto;
 }
-.content-footer::before {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 64px;
-  width: 1px;
-  background: var(--margin-line);
-  opacity: 0.6;
-  pointer-events: none;
-}
+
 
 .page-nav {
   display: flex;
@@ -1301,20 +1273,11 @@ body::after {
   .markdown-body {
     padding: var(--s6) var(--s5) var(--s8) var(--s10);
   }
-  .markdown-body::before {
-    left: 30px;
-  }
   .page-hud {
     padding: var(--s6) var(--s5) var(--s4) var(--s10);
   }
-  .page-hud::before {
-    left: 30px;
-  }
   .content-footer {
     padding: var(--s6) var(--s5) var(--s8) var(--s10);
-  }
-  .content-footer::before {
-    left: 30px;
   }
   .hero-layout {
     grid-template-columns: 1fr;
@@ -1330,11 +1293,8 @@ body::after {
     padding-left: var(--s8);
     padding-right: var(--s4);
   }
-  .markdown-body::before { display: none; }
   .page-hud { padding-left: var(--s8); padding-right: var(--s4); }
-  .page-hud::before { display: none; }
   .content-footer { padding-left: var(--s8); padding-right: var(--s4); }
-  .content-footer::before { display: none; }
   .hero-headline { font-size: 2.1rem; }
   .sc-grid { grid-template-columns: 1fr; }
   .hud-main { flex-direction: column; align-items: flex-start; gap: var(--s3); }
