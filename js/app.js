@@ -154,7 +154,6 @@ const els = {
   navList:           document.getElementById('navList'),
   loadingState:      document.getElementById('loadingState'),
   contentArea:       document.getElementById('contentArea'),
-  contentDisclaimer: document.getElementById('contentDisclaimer'),
   markdownBody:      document.getElementById('markdownBody'),
   pageNav:           document.getElementById('pageNav'),
   errorState:        document.getElementById('errorState'),
@@ -341,7 +340,6 @@ function renderHomePage(body) {
   `;
 
   els.markdownBody.innerHTML = heroHtml;
-  els.contentDisclaimer.style.display = 'none';
   els.markdownBody.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.disabled = true; });
 }
 
@@ -386,7 +384,6 @@ function renderSectionPage(page, meta, body) {
 
   const bodyNoH1 = body.replace(/^#\s+.+\n/m, '').trim();
   els.markdownBody.innerHTML = marked.parse(bodyNoH1);
-  els.contentDisclaimer.style.display = meta.showDisclaimer ? 'flex' : 'none';
   els.markdownBody.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.disabled = true; });
 }
 
