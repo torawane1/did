@@ -1,5 +1,5 @@
 /**
- * DID – Desi In Denmark
+ * The Arrival Guide
  * app.js — Sci-fi "Dataport Denmark" theme
  * Hash router · Markdown renderer · Command palette search
  */
@@ -281,7 +281,7 @@ function renderHomePage(body) {
   const heroHtml = `
     <section class="hero">
       <div class="hero-sys-line">
-        <span class="hero-sys-tag">SYS://DID.DENMARK.GOV</span>
+        <span class="hero-sys-tag">SYS://ARRIVAL.DENMARK.GOV</span>
         <span class="hero-sys-status">ONLINE</span>
         <span class="hero-sys-coord">55.6761°N 12.5683°E — CPH KASTRUP</span>
       </div>
@@ -361,7 +361,7 @@ function renderSectionPage(page, meta, body) {
     <div class="hud-top-bar">
       <span class="hud-code">${page.code}</span>
       <span class="hud-sep">·</span>
-      <span class="hud-sys">DID.DENMARK.GOV | SECTOR ${page.code}</span>
+      <span class="hud-sys">ARRIVAL.DENMARK.GOV | SECTOR ${page.code}</span>
       <span class="hud-status">ACTIVE</span>
     </div>
     <div class="hud-main">
@@ -402,8 +402,8 @@ async function renderPage(pageId) {
   setActiveNav(pageId);
 
   document.title = page.isHome
-    ? 'DID – Desi In Denmark | Resource Hub for Indian Tech Professionals'
-    : `${page.title} | DID – Desi In Denmark`;
+    ? 'The Arrival Guide | Denmark Relocation & Study Hub'
+    : `${page.title} | The Arrival Guide`;
 
   try {
     const raw = await fetchMarkdown(page.file);

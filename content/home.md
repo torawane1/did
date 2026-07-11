@@ -1,11 +1,11 @@
 <!-- meta
 title: Home
 updated: July 2026
-description: Welcome to DID – your practical guide to moving, studying, and living in Denmark as an Indian tech professional or student.
+description: Welcome to The Arrival Guide – your practical guide to moving, studying, and living in Denmark as an Indian tech professional or student.
 showDisclaimer: false
 -->
 
-# Welcome to DID — Desi In Denmark
+# Welcome to The Arrival Guide
 
 ---
 
@@ -58,7 +58,7 @@ Yes — once family reunification is approved, your spouse gets full right to wo
 
 ## About This Site
 
-DID is a community-maintained reference resource, not affiliated with any government body, company, or immigration service. Contributors are Indian tech professionals and students who have gone through this process and want to make it easier for others.
+The Arrival Guide is a community-maintained reference resource, not affiliated with any government body, company, or immigration service. Contributors are Indian tech professionals and students who have gone through this process and want to make it easier for others.
 
 Found an error or outdated info? Please open an issue on the [GitHub repository](https://github.com/torawane1/did) — pull requests welcome.
 
