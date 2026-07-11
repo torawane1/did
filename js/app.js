@@ -100,10 +100,10 @@ const RADAR_SVG = `
   <line x1="8" y1="100" x2="18" y2="100" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
   <line x1="182" y1="100" x2="192" y2="100" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
   <!-- Blips -->
-  <circle cx="132" cy="62" r="3" fill="#00E87A" class="radar-blip blip-1"/>
-  <circle cx="72" cy="148" r="2.5" fill="#00CFEF" class="radar-blip blip-2"/>
-  <circle cx="158" cy="115" r="2" fill="#00CFEF" class="radar-blip blip-3"/>
-  <circle cx="58" cy="72" r="2.5" fill="#9B5FFF" class="radar-blip blip-4"/>
+  <circle cx="132" cy="62" r="3" fill="#00E87A" opacity="0.8"/>
+  <circle cx="72" cy="148" r="2.5" fill="#00CFEF" opacity="0.7"/>
+  <circle cx="158" cy="115" r="2" fill="#00CFEF" opacity="0.6"/>
+  <circle cx="58" cy="72" r="2.5" fill="#9B5FFF" opacity="0.7"/>
   <!-- Blip rings (static glow) -->
   <circle cx="132" cy="62" r="7" stroke="#00E87A" stroke-width="0.5" opacity="0.3"/>
   <circle cx="72" cy="148" r="6" stroke="#00CFEF" stroke-width="0.5" opacity="0.2"/>
@@ -284,9 +284,6 @@ function renderHomePage(body) {
         </div>
         <div class="hero-radar-wrap" aria-hidden="true">
           ${RADAR_SVG}
-          <div class="radar-sweep-wrap">
-            <div class="radar-sweep"></div>
-          </div>
         </div>
       </div>
 

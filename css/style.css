@@ -88,8 +88,6 @@
 
 @keyframes blink       { 0%,100%{opacity:1} 50%{opacity:0} }
 @keyframes glow-pulse  { 0%,100%{opacity:.7} 50%{opacity:1} }
-@keyframes radar-spin  { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-@keyframes blip-fade   { 0%,100%{opacity:.8} 50%{opacity:.1} }
 @keyframes scanline    { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }
 @keyframes shimmer-dark {
   0% { background-position: 200% 0; }
@@ -722,32 +720,6 @@ body::after {
   flex-shrink: 0;
 }
 .radar-svg { width:100%; height:100%; }
-.radar-blip { animation: blip-fade 2.5s ease-in-out infinite; }
-.blip-1 { animation-delay: 0s; }
-.blip-2 { animation-delay: 0.9s; }
-.blip-3 { animation-delay: 1.7s; }
-.blip-4 { animation-delay: 0.5s; }
-
-.radar-sweep-wrap {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.radar-sweep {
-  position: absolute; inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    transparent 65%,
-    rgba(0,207,239,0.04) 75%,
-    rgba(0,207,239,0.15) 85%,
-    rgba(0,207,239,0.30) 95%,
-    rgba(0,207,239,0.40) 100%
-  );
-  animation: radar-spin 4s linear infinite;
-}
 
 /* Hero stats */
 .hero-stats {
