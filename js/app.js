@@ -1,7 +1,7 @@
 /**
  * DID – Desi In Denmark
- * app.js — Hash router · Markdown renderer · Command palette search
- * "Landing" theme — boarding pass cards, passport stamp badges, departure board nav
+ * app.js — Sci-fi "Dataport Denmark" theme
+ * Hash router · Markdown renderer · Command palette search
  */
 
 'use strict';
@@ -14,7 +14,7 @@ const PAGES = [
   {
     id: 'home',
     title: 'Home',
-    icon: '🏠',
+    icon: '⬡',
     file: 'content/home.md',
     desc: 'Overview, quick reference, and site guide',
     code: 'DK-00',
@@ -24,16 +24,16 @@ const PAGES = [
   {
     id: 'before-you-move',
     title: 'Before You Move',
-    icon: '✈️',
+    icon: '✈',
     file: 'content/before-you-move.md',
     desc: 'Visa types, required documents, salary negotiation, timeline',
     code: 'DK-01',
-    sectionLabel: 'Guides',
+    sectionLabel: 'GUIDES',
   },
   {
     id: 'first-30-days',
     title: 'First 30 Days',
-    icon: '📅',
+    icon: '◎',
     file: 'content/first-30-days.md',
     desc: 'CPR number, bank account, MitID, SIM card, housing',
     code: 'DK-02',
@@ -42,7 +42,7 @@ const PAGES = [
   {
     id: 'money-and-tax',
     title: 'Money & Tax',
-    icon: '💰',
+    icon: '◈',
     file: 'content/money-and-tax.md',
     desc: 'SKAT, tax card, payslips, pension, Forskerordning',
     code: 'DK-03',
@@ -51,7 +51,7 @@ const PAGES = [
   {
     id: 'daily-life',
     title: 'Daily Life',
-    icon: '🌤️',
+    icon: '◌',
     file: 'content/daily-life.md',
     desc: 'Indian groceries, community groups, healthcare, weather',
     code: 'DK-04',
@@ -60,7 +60,7 @@ const PAGES = [
   {
     id: 'work-culture',
     title: 'Work Culture',
-    icon: '💼',
+    icon: '◧',
     file: 'content/work-culture.md',
     desc: 'Flat hierarchy, communication norms, unions, notice periods',
     code: 'DK-05',
@@ -69,7 +69,7 @@ const PAGES = [
   {
     id: 'long-term',
     title: 'Long Term',
-    icon: '🏡',
+    icon: '⬟',
     file: 'content/long-term.md',
     desc: 'Permanent residency, family visas, citizenship, schooling',
     code: 'DK-06',
@@ -78,40 +78,45 @@ const PAGES = [
 ];
 
 // ============================================================
-// SVG ASSETS
+// RADAR SVG — animated scanner
 // ============================================================
 
-const COMPASS_SVG = `
-<svg class="hero-compass" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+const RADAR_SVG = `
+<svg class="radar-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <!-- Outer rings -->
-  <circle cx="120" cy="120" r="108" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 9" opacity="0.22"/>
-  <circle cx="120" cy="120" r="88" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
-  <circle cx="120" cy="120" r="60" stroke="currentColor" stroke-width="0.75" opacity="0.18"/>
-  <circle cx="120" cy="120" r="36" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.12"/>
-  <!-- Cardinal lines -->
-  <line x1="120" y1="8" x2="120" y2="232" stroke="currentColor" stroke-width="0.75" opacity="0.18"/>
-  <line x1="8" y1="120" x2="232" y2="120" stroke="currentColor" stroke-width="0.75" opacity="0.18"/>
+  <circle cx="100" cy="100" r="92" stroke="#00CFEF" stroke-width="0.5" opacity="0.18" stroke-dasharray="3 8"/>
+  <circle cx="100" cy="100" r="72" stroke="#00CFEF" stroke-width="0.5" opacity="0.22"/>
+  <circle cx="100" cy="100" r="52" stroke="#00CFEF" stroke-width="0.5" opacity="0.22"/>
+  <circle cx="100" cy="100" r="32" stroke="#00CFEF" stroke-width="0.5" opacity="0.18"/>
+  <!-- Cardinal cross-hairs -->
+  <line x1="100" y1="8" x2="100" y2="192" stroke="#00CFEF" stroke-width="0.3" opacity="0.18"/>
+  <line x1="8" y1="100" x2="192" y2="100" stroke="#00CFEF" stroke-width="0.3" opacity="0.18"/>
   <!-- Diagonal lines -->
-  <line x1="42" y1="42" x2="198" y2="198" stroke="currentColor" stroke-width="0.5" opacity="0.08"/>
-  <line x1="198" y1="42" x2="42" y2="198" stroke="currentColor" stroke-width="0.5" opacity="0.08"/>
+  <line x1="35" y1="35" x2="165" y2="165" stroke="#00CFEF" stroke-width="0.3" opacity="0.06"/>
+  <line x1="165" y1="35" x2="35" y2="165" stroke="#00CFEF" stroke-width="0.3" opacity="0.06"/>
   <!-- Tick marks -->
-  <line x1="120" y1="12" x2="120" y2="24" stroke="currentColor" stroke-width="2" opacity="0.55"/>
-  <line x1="120" y1="216" x2="120" y2="228" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-  <line x1="12" y1="120" x2="24" y2="120" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-  <line x1="216" y1="120" x2="228" y2="120" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-  <line x1="55" y1="55" x2="63" y2="63" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-  <line x1="177" y1="55" x2="185" y2="63" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-  <line x1="55" y1="185" x2="63" y2="177" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-  <line x1="177" y1="185" x2="185" y2="177" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-  <!-- North needle (Danish Red) -->
-  <polygon points="120,26 127,116 120,128 113,116" fill="#C8102E" opacity="0.9"/>
-  <!-- South needle (muted) -->
-  <polygon points="120,214 127,124 120,112 113,124" fill="currentColor" opacity="0.28"/>
-  <!-- Center pivot -->
-  <circle cx="120" cy="120" r="8" fill="#131C2B" stroke="currentColor" stroke-width="0.75" opacity="0.4"/>
-  <circle cx="120" cy="120" r="4" fill="#C8102E"/>
-  <!-- N label -->
-  <text x="112" y="11" font-family="Space Mono, monospace" font-size="10" fill="currentColor" opacity="0.55" letter-spacing="1">N</text>
+  <line x1="100" y1="8" x2="100" y2="18" stroke="#00CFEF" stroke-width="2" opacity="0.6"/>
+  <line x1="100" y1="182" x2="100" y2="192" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
+  <line x1="8" y1="100" x2="18" y2="100" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
+  <line x1="182" y1="100" x2="192" y2="100" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
+  <!-- Blips -->
+  <circle cx="132" cy="62" r="3" fill="#00E87A" class="radar-blip blip-1"/>
+  <circle cx="72" cy="148" r="2.5" fill="#00CFEF" class="radar-blip blip-2"/>
+  <circle cx="158" cy="115" r="2" fill="#00CFEF" class="radar-blip blip-3"/>
+  <circle cx="58" cy="72" r="2.5" fill="#9B5FFF" class="radar-blip blip-4"/>
+  <!-- Blip rings (static glow) -->
+  <circle cx="132" cy="62" r="7" stroke="#00E87A" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="72" cy="148" r="6" stroke="#00CFEF" stroke-width="0.5" opacity="0.2"/>
+  <!-- Center -->
+  <circle cx="100" cy="100" r="5" fill="none" stroke="#00CFEF" stroke-width="1" opacity="0.5"/>
+  <circle cx="100" cy="100" r="2.5" fill="#00CFEF" opacity="0.9"/>
+  <!-- DK label -->
+  <text x="109" y="98" font-family="Orbitron,monospace" font-size="6" fill="#00CFEF" opacity="0.45" letter-spacing="3">DK</text>
+  <!-- Coord labels -->
+  <text x="88" y="15" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">N</text>
+  <text x="88" y="197" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">S</text>
+  <text x="2" y="103" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">W</text>
+  <text x="188" y="103" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">E</text>
 </svg>`;
 
 // ============================================================
@@ -128,30 +133,28 @@ let searchHighlightIdx = -1;
 // ============================================================
 
 const els = {
-  navList:            document.getElementById('navList'),
-  loadingState:       document.getElementById('loadingState'),
-  contentArea:        document.getElementById('contentArea'),
-  contentDisclaimer:  document.getElementById('contentDisclaimer'),
-  markdownBody:       document.getElementById('markdownBody'),
-  pageNav:            document.getElementById('pageNav'),
-  errorState:         document.getElementById('errorState'),
+  navList:           document.getElementById('navList'),
+  loadingState:      document.getElementById('loadingState'),
+  contentArea:       document.getElementById('contentArea'),
+  contentDisclaimer: document.getElementById('contentDisclaimer'),
+  markdownBody:      document.getElementById('markdownBody'),
+  pageNav:           document.getElementById('pageNav'),
+  errorState:        document.getElementById('errorState'),
 
-  // Search overlay
-  searchOverlay:      document.getElementById('searchOverlay'),
-  searchOverlayBg:    document.getElementById('searchOverlayBackdrop'),
-  searchInput:        document.getElementById('searchInput'),
-  searchResults:      document.getElementById('searchResults'),
+  searchOverlay:     document.getElementById('searchOverlay'),
+  searchOverlayBg:   document.getElementById('searchOverlayBackdrop'),
+  searchInput:       document.getElementById('searchInput'),
+  searchResults:     document.getElementById('searchResults'),
 
-  // Sidebar
-  searchTriggerBtn:   document.getElementById('searchTriggerBtn'),
-  sidebar:            document.getElementById('sidebar'),
-  sidebarBackdrop:    document.getElementById('sidebarBackdrop'),
-  hamburgerBtn:       document.getElementById('hamburgerBtn'),
-  mobileSearchBtn:    document.getElementById('mobileSearchBtn'),
+  searchTriggerBtn:  document.getElementById('searchTriggerBtn'),
+  sidebar:           document.getElementById('sidebar'),
+  sidebarBackdrop:   document.getElementById('sidebarBackdrop'),
+  hamburgerBtn:      document.getElementById('hamburgerBtn'),
+  mobileSearchBtn:   document.getElementById('mobileSearchBtn'),
 };
 
 // ============================================================
-// MARKDOWN CONFIG
+// MARKED CONFIG
 // ============================================================
 
 marked.setOptions({ breaks: true, gfm: true });
@@ -170,11 +173,11 @@ function parseFrontmatter(rawMd) {
       const colonIdx = line.indexOf(':');
       if (colonIdx === -1) continue;
       const key = line.slice(0, colonIdx).trim();
-      const value = line.slice(colonIdx + 1).trim();
-      if (key === 'title') meta.title = value;
-      else if (key === 'updated') meta.updated = value;
-      else if (key === 'description') meta.description = value;
-      else if (key === 'showDisclaimer') meta.showDisclaimer = value === 'true';
+      const val = line.slice(colonIdx + 1).trim();
+      if (key === 'title') meta.title = val;
+      else if (key === 'updated') meta.updated = val;
+      else if (key === 'description') meta.description = val;
+      else if (key === 'showDisclaimer') meta.showDisclaimer = val === 'true';
     }
   }
 
@@ -183,7 +186,7 @@ function parseFrontmatter(rawMd) {
 }
 
 // ============================================================
-// NAV BUILDER — Departure board style
+// NAV BUILDER
 // ============================================================
 
 function buildNav() {
@@ -192,14 +195,14 @@ function buildNav() {
 
   for (const [idx, page] of PAGES.entries()) {
     if (page.sectionLabel && page.sectionLabel !== lastSection) {
-      html += `<li class="nav-section-label" aria-hidden="true">${page.sectionLabel}</li>`;
+      html += `<li class="nav-section-label">${page.sectionLabel}</li>`;
       lastSection = page.sectionLabel;
     }
     const num = String(idx).padStart(2, '0');
     html += `
       <li class="nav-item">
-        <a href="#${page.id}" class="nav-link" data-page="${page.id}" data-status="OPEN →" id="nav-${page.id}">
-          <span class="nav-num" aria-hidden="true">${num}</span>
+        <a href="#${page.id}" class="nav-link" data-page="${page.id}" data-status="OPEN" id="nav-${page.id}">
+          <span class="nav-num">${num}</span>
           <span class="nav-icon" aria-hidden="true">${page.icon}</span>
           <span class="nav-label">${page.title}</span>
         </a>
@@ -212,99 +215,106 @@ function buildNav() {
 
 function setActiveNav(pageId) {
   document.querySelectorAll('.nav-link').forEach(link => {
-    const isActive = link.dataset.page === pageId;
-    link.classList.toggle('active', isActive);
-    link.setAttribute('data-status', isActive ? 'OPEN ✓' : 'OPEN →');
+    const active = link.dataset.page === pageId;
+    link.classList.toggle('active', active);
+    link.setAttribute('data-status', active ? 'ACTIVE' : 'OPEN');
   });
 }
 
 // ============================================================
-// MARKDOWN FETCH WITH CACHE
+// FETCH WITH CACHE
 // ============================================================
 
 async function fetchMarkdown(file) {
   if (contentCache[file]) return contentCache[file];
-  const response = await fetch(file);
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const text = await response.text();
+  const res = await fetch(file);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const text = await res.text();
   contentCache[file] = text;
   return text;
 }
 
 // ============================================================
-// HOMEPAGE RENDERER — Hero + Boarding Pass Cards
+// HOMEPAGE — Sci-fi hero + grid cards
 // ============================================================
 
-function buildBoardingPassCard(page) {
+function buildSciCard(page) {
   return `
-    <a href="#${page.id}" class="bp-card">
-      <div class="bp-header">
-        <span class="bp-flight-num">${page.code}</span>
-        <span class="bp-status">OPEN</span>
-        <span class="bp-icon-wrap" aria-hidden="true">${page.icon}</span>
+    <a href="#${page.id}" class="sc-card">
+      <div class="sc-card-top">
+        <span class="sc-code">${page.code}</span>
+        <span class="sc-status">
+          <span class="sc-status-dot"></span>OPEN
+        </span>
+        <span class="sc-icon" aria-hidden="true">${page.icon}</span>
       </div>
-      <div class="bp-tear"></div>
-      <div class="bp-body">
-        <h3 class="bp-title">${page.title}</h3>
-        <p class="bp-desc">${page.desc}</p>
-        <span class="bp-action">→ OPEN GUIDE</span>
+      <div class="sc-card-body">
+        <h3 class="sc-card-title">${page.title.toUpperCase()}</h3>
+        <p class="sc-card-desc">${page.desc}</p>
+        <div class="sc-card-action">// ACCESS GUIDE →</div>
       </div>
     </a>
   `;
 }
 
 function renderHomePage(body) {
-  // Remove the h1 from body since hero shows the headline
   const bodyNoH1 = body.replace(/^#\s+.+\n/m, '').trim();
 
   const heroHtml = `
     <section class="hero">
-      <div class="hero-arrival-line">
-        <span>CPH · KASTRUP</span>
-        <span>ARRIVAL</span>
-        <span>IN: INDIA</span>
+      <div class="hero-sys-line">
+        <span class="hero-sys-tag">SYS://DID.DENMARK.GOV</span>
+        <span class="hero-sys-status">ONLINE</span>
+        <span class="hero-sys-coord">55.6761°N 12.5683°E — CPH KASTRUP</span>
       </div>
+
       <div class="hero-layout">
         <div class="hero-left">
+          <div class="hero-init-label">// ARRIVAL GUIDE — INITIALIZED</div>
           <h1 class="hero-headline">
-            You've<br>landed.<br>
-            <em>Now what?</em>
+            <span class="hero-h1-line1">You've</span>
+            <span class="hero-h1-line2">Landed.</span>
+            <span class="hero-h1-line3">Now navigate what's next.</span>
           </h1>
-          <p class="hero-lead">The practical guide for Indian tech professionals navigating every stage of life in Denmark — from visa to permanent residency.</p>
+          <p class="hero-lead">Complete navigation system for Indian tech professionals relocating to Denmark. From visa application to permanent residency — all in one place.</p>
           <div class="hero-ctas">
-            <a href="#before-you-move" class="cta-primary">Start here →</a>
-            <a href="#first-30-days" class="cta-secondary">First 30 days →</a>
+            <a href="#before-you-move" class="cta-primary">[ INIT SEQUENCE ]</a>
+            <a href="#first-30-days" class="cta-secondary">[ FIRST 30 DAYS ]</a>
           </div>
         </div>
-        <div class="hero-compass-wrap">
-          ${COMPASS_SVG}
+        <div class="hero-radar-wrap" aria-hidden="true">
+          ${RADAR_SVG}
+          <div class="radar-sweep-wrap">
+            <div class="radar-sweep"></div>
+          </div>
         </div>
       </div>
+
       <div class="hero-stats">
         <div class="hero-stat">
           <span class="hero-stat-val">~15,000</span>
           <span class="hero-stat-label">Indians in Denmark</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-val">6 guides</span>
-          <span class="hero-stat-label">Topics covered</span>
+          <span class="hero-stat-val">6 sectors</span>
+          <span class="hero-stat-label">Coverage modules</span>
         </div>
         <div class="hero-stat">
           <span class="hero-stat-val">Jul 2026</span>
-          <span class="hero-stat-label">Last updated</span>
+          <span class="hero-stat-label">Last sync</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-val">Zero</span>
+          <span class="hero-stat-val">ZERO</span>
           <span class="hero-stat-label">Paywalls</span>
         </div>
       </div>
     </section>
 
     <section class="sections-section">
-      <span class="sections-eyebrow">YOUR ITINERARY</span>
-      <h2 class="sections-title">Where would you like to go?</h2>
-      <div class="bp-grid">
-        ${PAGES.filter(p => !p.isHome).map(buildBoardingPassCard).join('')}
+      <span class="sections-eyebrow">// SELECT SECTOR</span>
+      <h2 class="sections-title">Navigation Matrix</h2>
+      <div class="sc-grid">
+        ${PAGES.filter(p => !p.isHome).map(buildSciCard).join('')}
       </div>
     </section>
 
@@ -317,61 +327,56 @@ function renderHomePage(body) {
 
   els.markdownBody.innerHTML = heroHtml;
   els.contentDisclaimer.style.display = 'none';
-
-  // Post-process checkboxes
   els.markdownBody.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.disabled = true; });
 }
 
 // ============================================================
-// SECTION PAGE RENDERER — Stamp badge + Markdown
+// SECTION PAGE — HUD header
 // ============================================================
 
 function renderSectionPage(page, meta, body) {
-  // Inject stamp header before content area
-  const existingStamp = document.getElementById('pageStampWrap');
-  if (existingStamp) existingStamp.remove();
+  // Remove any previous HUD
+  const prev = document.getElementById('pageHudWrap');
+  if (prev) prev.remove();
 
-  const updatedBadge = meta.updated
-    ? `<div class="updated-badge">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-        </svg>
-        UPDATED: ${meta.updated.toUpperCase()}
-      </div>`
-    : '';
-
-  const stampWrap = document.createElement('div');
-  stampWrap.className = 'page-stamp-wrap';
-  stampWrap.id = 'pageStampWrap';
-  stampWrap.innerHTML = `
-    <div class="page-stamp-inner">
-      <div class="page-stamp-headline">
-        <h1>${page.title}</h1>
-        ${meta.description ? `<p class="page-stamp-desc">${meta.description}</p>` : ''}
+  const hudEl = document.createElement('div');
+  hudEl.className = 'page-hud';
+  hudEl.id = 'pageHudWrap';
+  hudEl.innerHTML = `
+    <div class="hud-top-bar">
+      <span class="hud-code">${page.code}</span>
+      <span class="hud-sep">·</span>
+      <span class="hud-sys">DID.DENMARK.GOV // SECTOR ${page.code}</span>
+      <span class="hud-status">ACTIVE</span>
+    </div>
+    <div class="hud-main">
+      <div class="hud-title-block">
+        <h1 class="hud-title">${page.title}</h1>
+        ${meta.description ? `<p class="hud-desc">${meta.description}</p>` : ''}
       </div>
-      <div class="page-stamp">
-        <span class="stamp-code">${page.code}</span>
-        <span class="stamp-name">${page.title.toUpperCase()}</span>
-        ${meta.updated ? `<span class="stamp-date">${meta.updated.toUpperCase()}</span>` : ''}
+      <div class="hud-badge">
+        <span class="hud-badge-code">${page.code}</span>
+        <span class="hud-badge-name">${page.title.toUpperCase()}</span>
+        ${meta.updated ? `<span class="hud-badge-date">${meta.updated.toUpperCase()}</span>` : ''}
       </div>
     </div>
-    ${updatedBadge ? `<div style="margin-top: var(--s4); position: relative; z-index: 1;">${updatedBadge}</div>` : ''}
+    <div class="hud-bottom-bar">
+      <span class="hud-coord">55.6761°N 12.5683°E</span>
+      ${meta.updated ? `<span class="hud-updated">LAST SYNC: ${meta.updated.toUpperCase()}</span>` : ''}
+      ${meta.showDisclaimer ? `<span class="hud-disclaimer">⚠ VERIFY AT OFFICIAL SOURCES</span>` : ''}
+    </div>
   `;
 
-  // Insert before content area
-  els.contentArea.insertBefore(stampWrap, els.contentArea.firstChild);
+  els.contentArea.insertBefore(hudEl, els.contentArea.firstChild);
 
-  // Strip h1 from markdown since stamp shows the title
   const bodyNoH1 = body.replace(/^#\s+.+\n/m, '').trim();
   els.markdownBody.innerHTML = marked.parse(bodyNoH1);
   els.contentDisclaimer.style.display = meta.showDisclaimer ? 'flex' : 'none';
-
-  // Post-process checkboxes
   els.markdownBody.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.disabled = true; });
 }
 
 // ============================================================
-// MAIN PAGE RENDERER
+// RENDER PAGE
 // ============================================================
 
 async function renderPage(pageId) {
@@ -389,9 +394,8 @@ async function renderPage(pageId) {
     const raw = await fetchMarkdown(page.file);
     const { meta, body } = parseFrontmatter(raw);
 
-    // Remove any previous stamp header
-    const prevStamp = document.getElementById('pageStampWrap');
-    if (prevStamp) prevStamp.remove();
+    const prevHud = document.getElementById('pageHudWrap');
+    if (prevHud) prevHud.remove();
 
     if (page.isHome) {
       renderHomePage(body);
@@ -401,12 +405,10 @@ async function renderPage(pageId) {
 
     renderPageNav(pageId);
     showContent();
-
     window.scrollTo({ top: 0, behavior: 'smooth' });
     els.contentArea.focus({ preventScroll: true });
 
     indexPageForSearch(page, meta, body);
-
   } catch (err) {
     console.error('Failed to load page:', err);
     showError();
@@ -421,23 +423,9 @@ function renderPageNav(currentId) {
   const idx = PAGES.findIndex(p => p.id === currentId);
   const prev = idx > 0 ? PAGES[idx - 1] : null;
   const next = idx < PAGES.length - 1 ? PAGES[idx + 1] : null;
-
   let html = '';
-  if (prev) {
-    html += `
-      <a href="#${prev.id}" class="page-nav-btn prev">
-        <span class="nav-btn-label">← PREVIOUS</span>
-        <span class="nav-btn-title">${prev.icon} ${prev.title}</span>
-      </a>`;
-  }
-  if (next) {
-    html += `
-      <a href="#${next.id}" class="page-nav-btn next">
-        <span class="nav-btn-label">NEXT →</span>
-        <span class="nav-btn-title">${next.icon} ${next.title}</span>
-      </a>`;
-  }
-
+  if (prev) html += `<a href="#${prev.id}" class="page-nav-btn prev"><span class="nav-btn-label">← PREV SECTOR</span><span class="nav-btn-title">${prev.icon} ${prev.title}</span></a>`;
+  if (next) html += `<a href="#${next.id}" class="page-nav-btn next"><span class="nav-btn-label">NEXT SECTOR →</span><span class="nav-btn-title">${next.icon} ${next.title}</span></a>`;
   els.pageNav.innerHTML = html;
 }
 
@@ -477,23 +465,17 @@ function handleRoute() {
 }
 
 // ============================================================
-// SEARCH — Full-text via Fuse.js
+// SEARCH — Fuse.js full-text
 // ============================================================
 
 function indexPageForSearch(page, meta, body) {
-  // Strip markdown syntax
-  const plainText = body
-    .replace(/#+\s/g, '')
-    .replace(/\*+/g, '')
+  const plain = body
+    .replace(/#+\s/g, '').replace(/\*+/g, '')
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/`[^`]+`/g, '')
-    .replace(/<!--.*?-->/gs, '')
-    .replace(/\|/g, ' ')
-    .replace(/\n/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .trim();
+    .replace(/`[^`]+`/g, '').replace(/<!--.*?-->/gs, '')
+    .replace(/\|/g, ' ').replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
 
-  const sentences = plainText.split(/(?<=[.!?])\s+/);
+  const sentences = plain.split(/(?<=[.!?])\s+/);
   const chunkSize = 3;
 
   for (let i = 0; i < sentences.length; i += chunkSize) {
@@ -522,7 +504,7 @@ async function preloadAllForSearch() {
       const raw = await fetchMarkdown(page.file);
       const { meta, body } = parseFrontmatter(raw);
       indexPageForSearch(page, meta, body);
-    } catch (e) { /* skip */ }
+    } catch { /* skip */ }
   }
 }
 
@@ -531,23 +513,22 @@ function performSearch(query) {
   searchHighlightIdx = -1;
 
   if (!query || query.trim().length < 2) {
-    resultsEl.innerHTML = `<div class="search-empty">Type to search all guides and topics…</div>`;
+    resultsEl.innerHTML = `<div class="search-empty">&gt;_ TYPE TO QUERY ALL SECTORS…</div>`;
     return;
   }
 
   if (!fuseInstance) {
-    resultsEl.innerHTML = `<div class="search-empty">Index loading, try again in a moment…</div>`;
+    resultsEl.innerHTML = `<div class="search-empty">&gt;_ INDEX LOADING — RETRY MOMENTARILY…</div>`;
     return;
   }
 
   const results = fuseInstance.search(query, { limit: 10 });
 
-  if (results.length === 0) {
-    resultsEl.innerHTML = `<div class="search-empty">No results for "<strong style="color:#E8EDF3">${escapeHtml(query)}</strong>" — try a different term</div>`;
+  if (!results.length) {
+    resultsEl.innerHTML = `<div class="search-empty">&gt;_ NO RESULTS FOR <strong>"${escapeHtml(query)}"</strong> — SECTOR UNKNOWN</div>`;
     return;
   }
 
-  // Dedupe by page
   const seen = new Set();
   const filtered = results.filter(r => {
     if (seen.has(r.item.pageId)) return false;
@@ -555,18 +536,17 @@ function performSearch(query) {
     return true;
   });
 
-  resultsEl.innerHTML = filtered.map(result => {
-    const item = result.item;
+  resultsEl.innerHTML = filtered.map(r => {
+    const item = r.item;
     const snippet = item.text.slice(0, 110) + (item.text.length > 110 ? '…' : '');
     return `
       <div class="search-result-item" data-page="${item.pageId}" role="option" tabindex="0">
-        <div class="sr-section">${item.pageIcon} <span>${item.pageCode} · ${item.pageTitle}</span></div>
-        <div class="sr-snippet">${escapeHtml(snippet)}</div>
+        <div class="sr-code">[${item.pageCode}] <span class="sr-section-name">${item.pageTitle.toUpperCase()}</span></div>
+        <div class="sr-snippet">&gt; ${escapeHtml(snippet)}</div>
       </div>
     `;
   }).join('');
 
-  // Bind click / keyboard
   resultsEl.querySelectorAll('.search-result-item').forEach(item => {
     item.addEventListener('click', () => navigateToResult(item.dataset.page));
     item.addEventListener('keydown', e => { if (e.key === 'Enter') navigateToResult(item.dataset.page); });
@@ -578,7 +558,6 @@ function navigateToResult(pageId) {
   closeSearch();
 }
 
-// Arrow key navigation in search results
 function moveSearchHighlight(dir) {
   const items = els.searchResults.querySelectorAll('.search-result-item');
   if (!items.length) return;
@@ -589,29 +568,24 @@ function moveSearchHighlight(dir) {
 }
 
 function selectHighlighted() {
-  const highlighted = els.searchResults.querySelector('.search-result-item.highlighted');
-  if (highlighted) navigateToResult(highlighted.dataset.page);
+  const h = els.searchResults.querySelector('.search-result-item.highlighted');
+  if (h) navigateToResult(h.dataset.page);
 }
 
 function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // ============================================================
-// COMMAND PALETTE OPEN / CLOSE
+// SEARCH OPEN / CLOSE
 // ============================================================
 
 function openSearch() {
   els.searchOverlay.classList.add('open');
   els.searchOverlay.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  // Reset state
   els.searchInput.value = '';
-  els.searchResults.innerHTML = `<div class="search-empty">Type to search all guides and topics…</div>`;
+  els.searchResults.innerHTML = `<div class="search-empty">&gt;_ TYPE TO QUERY ALL SECTORS…</div>`;
   searchHighlightIdx = -1;
   setTimeout(() => els.searchInput.focus(), 50);
 }
@@ -646,24 +620,18 @@ function closeMobileSidebar() {
 // ============================================================
 
 function bindEvents() {
-  // Routing
   window.addEventListener('hashchange', handleRoute);
 
-  // Search trigger buttons
   els.searchTriggerBtn.addEventListener('click', openSearch);
   els.mobileSearchBtn.addEventListener('click', openSearch);
-
-  // Search overlay backdrop
   els.searchOverlayBg.addEventListener('click', closeSearch);
 
-  // Search input
-  let searchTimeout;
+  let debounce;
   els.searchInput.addEventListener('input', () => {
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => performSearch(els.searchInput.value), 180);
+    clearTimeout(debounce);
+    debounce = setTimeout(() => performSearch(els.searchInput.value), 180);
   });
 
-  // Arrow keys in search
   els.searchInput.addEventListener('keydown', e => {
     if (e.key === 'ArrowDown') { e.preventDefault(); moveSearchHighlight(1); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); moveSearchHighlight(-1); }
@@ -671,12 +639,10 @@ function bindEvents() {
     else if (e.key === 'Escape') closeSearch();
   });
 
-  // Global keyboard shortcuts
   document.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
-      if (els.searchOverlay.classList.contains('open')) closeSearch();
-      else openSearch();
+      els.searchOverlay.classList.contains('open') ? closeSearch() : openSearch();
     }
     if (e.key === 'Escape') {
       if (els.searchOverlay.classList.contains('open')) closeSearch();
@@ -684,12 +650,9 @@ function bindEvents() {
     }
   });
 
-  // Mobile hamburger
   els.hamburgerBtn.addEventListener('click', () => {
     els.sidebar.classList.contains('open') ? closeMobileSidebar() : openMobileSidebar();
   });
-
-  // Sidebar backdrop
   els.sidebarBackdrop.addEventListener('click', closeMobileSidebar);
 
   // External links → new tab
@@ -712,7 +675,6 @@ function init() {
   buildNav();
   bindEvents();
   handleRoute();
-  // Pre-index all content for search (background, after initial render)
   setTimeout(preloadAllForSearch, 800);
 }
 
