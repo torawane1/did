@@ -269,7 +269,7 @@ function buildSciCard(page) {
       <div class="sc-card-body">
         <h3 class="sc-card-title">${page.title.toUpperCase()}</h3>
         <p class="sc-card-desc">${page.desc}</p>
-        <div class="sc-card-action">// ACCESS GUIDE →</div>
+        <div class="sc-card-action">ACCESS GUIDE →</div>
       </div>
     </a>
   `;
@@ -288,7 +288,7 @@ function renderHomePage(body) {
 
       <div class="hero-layout">
         <div class="hero-left">
-          <div class="hero-init-label">// ARRIVAL GUIDE — INITIALIZED</div>
+          <div class="hero-init-label">ARRIVAL GUIDE — INITIALIZED</div>
           <h1 class="hero-headline">
             <span class="hero-h1-line1">You've</span>
             <span class="hero-h1-line2">Landed.</span>
@@ -326,7 +326,7 @@ function renderHomePage(body) {
     </section>
 
     <section class="sections-section">
-      <span class="sections-eyebrow">// SELECT SECTOR</span>
+      <span class="sections-eyebrow">SELECT SECTOR</span>
       <h2 class="sections-title">Navigation Matrix</h2>
       <div class="sc-grid">
         ${PAGES.filter(p => !p.isHome).map(buildSciCard).join('')}
@@ -361,7 +361,7 @@ function renderSectionPage(page, meta, body) {
     <div class="hud-top-bar">
       <span class="hud-code">${page.code}</span>
       <span class="hud-sep">·</span>
-      <span class="hud-sys">DID.DENMARK.GOV // SECTOR ${page.code}</span>
+      <span class="hud-sys">DID.DENMARK.GOV | SECTOR ${page.code}</span>
       <span class="hud-status">ACTIVE</span>
     </div>
     <div class="hud-main">

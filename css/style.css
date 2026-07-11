@@ -348,9 +348,7 @@ body::after {
   display: flex;
   align-items: center;
   gap: var(--s3);
-  margin-top: var(--s2);
 }
-.nav-section-label::before { content:'//'; color: var(--cyan-border-hi); }
 
 .nav-link {
   display: flex;
@@ -1081,16 +1079,7 @@ body::after {
   align-items: center;
   gap: var(--s3);
 }
-.markdown-body h2::before {
-  content: '//';
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--cyan);
-  opacity: .5;
-  text-shadow: none;
-  flex-shrink: 0;
-}
+
 
 .markdown-body h3 {
   font-family: var(--font-display);
