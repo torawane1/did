@@ -75,6 +75,15 @@ const PAGES = [
     code: 'DK-06',
     sectionLabel: null,
   },
+  {
+    id: 'student-guide',
+    title: 'Study in Denmark',
+    icon: '🎓',
+    file: 'content/student-guide.md',
+    desc: 'University admissions, tuition fees, scholarships, housing (kollegier), and visa rules',
+    code: 'DK-07',
+    sectionLabel: null,
+  },
 ];
 
 // ============================================================
