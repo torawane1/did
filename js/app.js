@@ -1,140 +1,176 @@
 /**
  * The Arrival Guide
- * app.js — Sci-fi "Dataport Denmark" theme
- * Hash router · Markdown renderer · Command palette search
+ * app.js — Travel Journal / Diary theme
+ * Hash router · Markdown renderer · Command palette search · 3D page-flip transitions
  */
 
 'use strict';
 
 // ============================================================
-// PAGE CONFIGURATION
+// PAGE CONFIGURATION & METADATA
 // ============================================================
 
 const PAGES = [
   {
     id: 'home',
     title: 'Home',
-    icon: '⬡',
+    icon: 'home',
     file: 'content/home.md',
     desc: 'Overview, quick reference, and site guide',
-    code: 'DK-00',
+    code: '00',
     sectionLabel: null,
     isHome: true,
   },
   {
     id: 'before-you-move',
     title: 'Before You Move',
-    icon: '✈',
+    icon: 'before-you-move',
     file: 'content/before-you-move.md',
     desc: 'Visa types, required documents, salary negotiation, timeline',
-    code: 'DK-01',
-    sectionLabel: 'GUIDES',
+    code: '01',
+    sectionLabel: 'JOURNAL SECTIONS',
   },
   {
     id: 'first-30-days',
     title: 'First 30 Days',
-    icon: '◎',
+    icon: 'first-30-days',
     file: 'content/first-30-days.md',
     desc: 'CPR number, bank account, MitID, SIM card, housing',
-    code: 'DK-02',
+    code: '02',
     sectionLabel: null,
   },
   {
     id: 'money-and-tax',
     title: 'Money & Tax',
-    icon: '◈',
+    icon: 'money-and-tax',
     file: 'content/money-and-tax.md',
     desc: 'SKAT, tax card, payslips, pension, Forskerordning',
-    code: 'DK-03',
+    code: '03',
     sectionLabel: null,
   },
   {
     id: 'daily-life',
     title: 'Daily Life',
-    icon: '◌',
+    icon: 'daily-life',
     file: 'content/daily-life.md',
     desc: 'Indian groceries, community groups, healthcare, weather',
-    code: 'DK-04',
+    code: '04',
     sectionLabel: null,
   },
   {
     id: 'work-culture',
     title: 'Work Culture',
-    icon: '◧',
+    icon: 'work-culture',
     file: 'content/work-culture.md',
     desc: 'Flat hierarchy, communication norms, unions, notice periods',
-    code: 'DK-05',
+    code: '05',
     sectionLabel: null,
   },
   {
     id: 'long-term',
     title: 'Long Term',
-    icon: '⬟',
+    icon: 'long-term',
     file: 'content/long-term.md',
     desc: 'Permanent residency, family visas, citizenship, schooling',
-    code: 'DK-06',
+    code: '06',
     sectionLabel: null,
   },
   {
     id: 'student-guide',
     title: 'Study in Denmark',
-    icon: '🎓',
+    icon: 'student-guide',
     file: 'content/student-guide.md',
     desc: 'University admissions, tuition fees, scholarships, housing (kollegier), and visa rules',
-    code: 'DK-07',
+    code: '07',
     sectionLabel: null,
   },
   {
     id: 'tourism',
     title: 'Tourism & Travel',
-    icon: '🧭',
+    icon: 'tourism',
     file: 'content/tourism.md',
     desc: 'Sightseeing in/out of Copenhagen, student/budget discounts, public transport, and bike rules',
-    code: 'DK-08',
+    code: '08',
     sectionLabel: null,
   },
 ];
 
 // ============================================================
-// RADAR SVG — animated scanner
+// HAND-DRAWN SVGS
 // ============================================================
 
-const RADAR_SVG = `
-<svg class="radar-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Outer rings -->
-  <circle cx="100" cy="100" r="92" stroke="#00CFEF" stroke-width="0.5" opacity="0.18" stroke-dasharray="3 8"/>
-  <circle cx="100" cy="100" r="72" stroke="#00CFEF" stroke-width="0.5" opacity="0.22"/>
-  <circle cx="100" cy="100" r="52" stroke="#00CFEF" stroke-width="0.5" opacity="0.22"/>
-  <circle cx="100" cy="100" r="32" stroke="#00CFEF" stroke-width="0.5" opacity="0.18"/>
-  <!-- Cardinal cross-hairs -->
-  <line x1="100" y1="8" x2="100" y2="192" stroke="#00CFEF" stroke-width="0.3" opacity="0.18"/>
-  <line x1="8" y1="100" x2="192" y2="100" stroke="#00CFEF" stroke-width="0.3" opacity="0.18"/>
-  <!-- Diagonal lines -->
-  <line x1="35" y1="35" x2="165" y2="165" stroke="#00CFEF" stroke-width="0.3" opacity="0.06"/>
-  <line x1="165" y1="35" x2="35" y2="165" stroke="#00CFEF" stroke-width="0.3" opacity="0.06"/>
-  <!-- Tick marks -->
-  <line x1="100" y1="8" x2="100" y2="18" stroke="#00CFEF" stroke-width="2" opacity="0.6"/>
-  <line x1="100" y1="182" x2="100" y2="192" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
-  <line x1="8" y1="100" x2="18" y2="100" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
-  <line x1="182" y1="100" x2="192" y2="100" stroke="#00CFEF" stroke-width="1.5" opacity="0.4"/>
-  <!-- Blips -->
-  <circle cx="132" cy="62" r="3" fill="#00E87A" opacity="0.8"/>
-  <circle cx="72" cy="148" r="2.5" fill="#00CFEF" opacity="0.7"/>
-  <circle cx="158" cy="115" r="2" fill="#00CFEF" opacity="0.6"/>
-  <circle cx="58" cy="72" r="2.5" fill="#9B5FFF" opacity="0.7"/>
-  <!-- Blip rings (static glow) -->
-  <circle cx="132" cy="62" r="7" stroke="#00E87A" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="72" cy="148" r="6" stroke="#00CFEF" stroke-width="0.5" opacity="0.2"/>
-  <!-- Center -->
-  <circle cx="100" cy="100" r="5" fill="none" stroke="#00CFEF" stroke-width="1" opacity="0.5"/>
-  <circle cx="100" cy="100" r="2.5" fill="#00CFEF" opacity="0.9"/>
-  <!-- DK label -->
-  <text x="109" y="98" font-family="Orbitron,monospace" font-size="6" fill="#00CFEF" opacity="0.45" letter-spacing="3">DK</text>
-  <!-- Coord labels -->
-  <text x="88" y="15" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">N</text>
-  <text x="88" y="197" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">S</text>
-  <text x="2" y="103" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">W</text>
-  <text x="188" y="103" font-family="Space Mono,monospace" font-size="5" fill="#00CFEF" opacity="0.3" letter-spacing="1">E</text>
+const DOODLE_MAP = {
+  'home': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5L4 4.5A2.5 2.5 0 0 1 6.5 2M6.5 2H20v20H6.5" />
+    </svg>`,
+  'before-you-move': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="8" width="18" height="12" rx="1.5" />
+      <path d="M8 8V5.5a1.5 1.5 0 0 1 1.5-1.5h5a1.5 1.5 0 0 1 1.5 1.5V8M3 12h18" />
+    </svg>`,
+  'first-30-days': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="17" rx="1.5" />
+      <path d="M16 2v4M8 2v4M3 9h18" />
+      <circle cx="12" cy="15" r="2.5" />
+    </svg>`,
+  'money-and-tax': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v10M9.5 9.5h5a2 2 0 0 1 0 4h-5v3.5M9.5 13.5H13" />
+    </svg>`,
+  'daily-life': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="18.5" cy="17.5" r="3" />
+      <circle cx="5.5" cy="17.5" r="3" />
+      <path d="M15 17.5H9M12 7.5V17.5M12 7.5L8 10M12 7.5l5 2" />
+    </svg>`,
+  'work-culture': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+      <path d="M2 20h20" />
+    </svg>`,
+  'long-term': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </svg>`,
+  'student-guide': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 10L12 5 2 10l10 5 10-5z" />
+      <path d="M6 12v5c0 1.5 2 2.5 6 2.5s6-1 6-2.5v-5" />
+    </svg>`,
+  'tourism': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <polygon points="16 8 13.5 13.5 8 16 10.5 10.5 16 8" />
+    </svg>`
+};
+
+const COMPASS_SVG = `
+<svg class="compass-doodle" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Hand-drawn sketch compass -->
+  <circle cx="100" cy="100" r="82" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 4" opacity="0.6"/>
+  <circle cx="100" cy="100" r="77" stroke="currentColor" stroke-width="1" opacity="0.8"/>
+  <circle cx="100" cy="100" r="35" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 2" opacity="0.5"/>
+  <!-- Cardinal directions -->
+  <path d="M100 12 L100 188 M12 100 L188 100" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <!-- Arrow pointer -->
+  <polygon points="100,22 105,85 100,100" fill="currentColor" opacity="0.8"/>
+  <polygon points="100,22 95,85 100,100" fill="none" stroke="currentColor" stroke-width="0.8"/>
+  <polygon points="100,178 105,115 100,100" fill="none" stroke="currentColor" stroke-width="0.8"/>
+  <polygon points="100,178 95,115 100,100" fill="currentColor" opacity="0.5"/>
+  <polygon points="178,100 115,105 100,100" fill="currentColor" opacity="0.8"/>
+  <polygon points="178,100 115,95 100,100" fill="none" stroke="currentColor" stroke-width="0.8"/>
+  <polygon points="22,100 85,105 100,100" fill="none" stroke="currentColor" stroke-width="0.8"/>
+  <polygon points="22,100 85,95 100,100" fill="currentColor" opacity="0.5"/>
+  <circle cx="100" cy="100" r="4.5" fill="currentColor"/>
+  <!-- Labels -->
+  <text x="94" y="16" font-family="Caveat, cursive" font-weight="bold" font-size="18" fill="currentColor">N</text>
+  <text x="94" y="196" font-family="Caveat, cursive" font-weight="bold" font-size="18" fill="currentColor">S</text>
+  <text x="3" y="106" font-family="Caveat, cursive" font-weight="bold" font-size="18" fill="currentColor">W</text>
+  <text x="189" y="106" font-family="Caveat, cursive" font-weight="bold" font-size="18" fill="currentColor">E</text>
 </svg>`;
 
 // ============================================================
@@ -145,6 +181,7 @@ const contentCache = {};
 let fuseInstance = null;
 let searchIndex = [];
 let searchHighlightIdx = -1;
+let activeTransition = false;
 
 // ============================================================
 // DOM REFERENCES
@@ -215,12 +252,13 @@ function buildNav() {
       html += `<li class="nav-section-label">${page.sectionLabel}</li>`;
       lastSection = page.sectionLabel;
     }
+    const doodle = DOODLE_MAP[page.icon] || '';
     const num = String(idx).padStart(2, '0');
     html += `
       <li class="nav-item">
-        <a href="#${page.id}" class="nav-link" data-page="${page.id}" data-status="OPEN" id="nav-${page.id}">
+        <a href="#${page.id}" class="nav-link" data-page="${page.id}" id="nav-${page.id}">
           <span class="nav-num">${num}</span>
-          <span class="nav-icon" aria-hidden="true">${page.icon}</span>
+          <span class="nav-icon-wrap" aria-hidden="true">${doodle}</span>
           <span class="nav-label">${page.title}</span>
         </a>
       </li>
@@ -234,7 +272,6 @@ function setActiveNav(pageId) {
   document.querySelectorAll('.nav-link').forEach(link => {
     const active = link.dataset.page === pageId;
     link.classList.toggle('active', active);
-    link.setAttribute('data-status', active ? 'ACTIVE' : 'OPEN');
   });
 }
 
@@ -252,23 +289,21 @@ async function fetchMarkdown(file) {
 }
 
 // ============================================================
-// HOMEPAGE — Sci-fi hero + grid cards
+// HOMEPAGE — Diary/Journal hero + grid cards
 // ============================================================
 
 function buildSciCard(page) {
+  const doodle = DOODLE_MAP[page.icon] || '';
   return `
     <a href="#${page.id}" class="sc-card">
       <div class="sc-card-top">
-        <span class="sc-code">${page.code}</span>
-        <span class="sc-status">
-          <span class="sc-status-dot"></span>OPEN
-        </span>
-        <span class="sc-icon" aria-hidden="true">${page.icon}</span>
+        <span class="sc-code">Entry #${page.code}</span>
+        <span class="sc-icon-wrap" aria-hidden="true">${doodle}</span>
       </div>
       <div class="sc-card-body">
-        <h3 class="sc-card-title">${page.title.toUpperCase()}</h3>
+        <h3 class="sc-card-title">${page.title}</h3>
         <p class="sc-card-desc">${page.desc}</p>
-        <div class="sc-card-action">ACCESS GUIDE →</div>
+        <div class="sc-card-action">Read Entry →</div>
       </div>
     </a>
   `;
@@ -279,54 +314,47 @@ function renderHomePage(body) {
 
   const heroHtml = `
     <section class="hero">
-      <div class="hero-sys-line">
-        <span class="hero-sys-tag">SYS://ARRIVAL.DENMARK.GOV</span>
-        <span class="hero-sys-status">ONLINE</span>
-        <span class="hero-sys-coord">55.6761°N 12.5683°E — CPH KASTRUP</span>
+      <div class="diary-date-header">
+        <span class="diary-location">Copenhagen, Denmark</span>
+        <span class="diary-date-stamp">July 2026</span>
       </div>
 
       <div class="hero-layout">
         <div class="hero-left">
-          <div class="hero-init-label">ARRIVAL GUIDE — INITIALIZED</div>
+          <div class="hero-diary-title">The Arrival Guide</div>
           <h1 class="hero-headline">
-            <span class="hero-h1-line1">You've</span>
-            <span class="hero-h1-line2">Landed.</span>
-            <span class="hero-h1-line3">Now navigate what's next.</span>
+            <span class="hero-h1-line1">You've landed.</span>
+            <span class="hero-h1-line2">Now navigate what's next.</span>
           </h1>
-          <p class="hero-lead">Complete navigation system for Indian tech professionals relocating to Denmark. From visa application to permanent residency — all in one place.</p>
+          <p class="hero-lead">A handwritten travel journal and resources hub for Indian tech professionals relocating to and settling in Denmark. We've compiled all the scattering advice, checklists, and official links in one readable notebook.</p>
           <div class="hero-ctas">
-            <a href="#before-you-move" class="cta-primary">[ INIT SEQUENCE ]</a>
-            <a href="#first-30-days" class="cta-secondary">[ FIRST 30 DAYS ]</a>
+            <a href="#before-you-move" class="cta-primary">Before You Move</a>
+            <a href="#first-30-days" class="cta-secondary">First 30 Days</a>
           </div>
         </div>
-        <div class="hero-radar-wrap" aria-hidden="true">
-          ${RADAR_SVG}
+        <div class="hero-compass-wrap" aria-hidden="true">
+          ${COMPASS_SVG}
         </div>
       </div>
 
       <div class="hero-stats">
         <div class="hero-stat">
           <span class="hero-stat-val">~15,000</span>
-          <span class="hero-stat-label">Indians in Denmark</span>
+          <span class="hero-stat-label">Indian Expats</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-val">6 sectors</span>
-          <span class="hero-stat-label">Coverage modules</span>
+          <span class="hero-stat-val">9 chapters</span>
+          <span class="hero-stat-label">Detailed Guides</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-val">Jul 2026</span>
-          <span class="hero-stat-label">Last sync</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-val">ZERO</span>
-          <span class="hero-stat-label">Paywalls</span>
+          <span class="hero-stat-val">CPH</span>
+          <span class="hero-stat-label">Main Hub</span>
         </div>
       </div>
     </section>
 
     <section class="sections-section">
-      <span class="sections-eyebrow">SELECT SECTOR</span>
-      <h2 class="sections-title">Navigation Matrix</h2>
+      <h2 class="sections-title">Journal Index & Entries</h2>
       <div class="sc-grid">
         ${PAGES.filter(p => !p.isHome).map(buildSciCard).join('')}
       </div>
@@ -344,7 +372,7 @@ function renderHomePage(body) {
 }
 
 // ============================================================
-// SECTION PAGE — HUD header
+// SECTION PAGE — Journal HUD header
 // ============================================================
 
 function renderSectionPage(page, meta, body) {
@@ -357,7 +385,7 @@ function renderSectionPage(page, meta, body) {
   hudEl.id = 'pageHudWrap';
   hudEl.innerHTML = `
     <div class="hud-top-bar">
-      <span class="hud-code">${page.code}</span>
+      <span class="hud-code">Entry #${page.code}</span>
       <span class="hud-sep">·</span>
       <span class="hud-sys">ARRIVAL.DENMARK.GOV | SECTOR ${page.code}</span>
       <span class="hud-status">ACTIVE</span>
@@ -368,15 +396,15 @@ function renderSectionPage(page, meta, body) {
         ${meta.description ? `<p class="hud-desc">${meta.description}</p>` : ''}
       </div>
       <div class="hud-badge">
-        <span class="hud-badge-code">${page.code}</span>
-        <span class="hud-badge-name">${page.title.toUpperCase()}</span>
-        ${meta.updated ? `<span class="hud-badge-date">${meta.updated.toUpperCase()}</span>` : ''}
+        <span class="hud-badge-code">Ch. ${page.code}</span>
+        <span class="hud-badge-name">${page.title}</span>
+        ${meta.updated ? `<span class="hud-badge-date">${meta.updated}</span>` : ''}
       </div>
     </div>
     <div class="hud-bottom-bar">
       <span class="hud-coord">55.6761°N 12.5683°E</span>
-      ${meta.updated ? `<span class="hud-updated">LAST SYNC: ${meta.updated.toUpperCase()}</span>` : ''}
-      ${meta.showDisclaimer ? `<span class="hud-disclaimer">⚠ VERIFY AT OFFICIAL SOURCES</span>` : ''}
+      ${meta.updated ? `<span class="hud-updated">Last Sync: ${meta.updated}</span>` : ''}
+      ${meta.showDisclaimer ? `<span class="hud-disclaimer">⚠ Verify at Official Sources</span>` : ''}
     </div>
   `;
 
@@ -388,42 +416,74 @@ function renderSectionPage(page, meta, body) {
 }
 
 // ============================================================
-// RENDER PAGE
+// RENDER PAGE WITH 3D PAGE-FLIP TRANSITION
 // ============================================================
 
 async function renderPage(pageId) {
   const page = PAGES.find(p => p.id === pageId);
   if (!page) { showError(); return; }
 
-  showLoading();
-  setActiveNav(pageId);
+  // If already transitioning, skip duplicate triggers
+  if (activeTransition) return;
 
-  document.title = page.isHome
-    ? 'The Arrival Guide | Denmark Relocation & Study Hub'
-    : `${page.title} | The Arrival Guide`;
+  const performRender = async () => {
+    setActiveNav(pageId);
+    document.title = page.isHome
+      ? 'The Arrival Guide | Denmark Relocation & Study Hub'
+      : `${page.title} | The Arrival Guide`;
 
-  try {
-    const raw = await fetchMarkdown(page.file);
-    const { meta, body } = parseFrontmatter(raw);
+    try {
+      const raw = await fetchMarkdown(page.file);
+      const { meta, body } = parseFrontmatter(raw);
 
-    const prevHud = document.getElementById('pageHudWrap');
-    if (prevHud) prevHud.remove();
+      const prevHud = document.getElementById('pageHudWrap');
+      if (prevHud) prevHud.remove();
 
-    if (page.isHome) {
-      renderHomePage(body);
-    } else {
-      renderSectionPage(page, meta, body);
+      if (page.isHome) {
+        renderHomePage(body);
+      } else {
+        renderSectionPage(page, meta, body);
+      }
+
+      renderPageNav(pageId);
+      showContent();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Page Numbering Injection
+      let pgNumEl = document.querySelector('.diary-page-number');
+      if (!pgNumEl) {
+        pgNumEl = document.createElement('div');
+        pgNumEl.className = 'diary-page-number';
+        els.contentArea.appendChild(pgNumEl);
+      }
+      pgNumEl.textContent = `Page ${page.code}`;
+
+      indexPageForSearch(page, meta, body);
+    } catch (err) {
+      console.error('Failed to load page:', err);
+      showError();
     }
+  };
 
-    renderPageNav(pageId);
-    showContent();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    els.contentArea.focus({ preventScroll: true });
+  // Check if contentArea is already visible (not initial load)
+  if (els.contentArea.style.display !== 'none' && els.contentArea.offsetHeight > 0) {
+    activeTransition = true;
+    els.contentArea.classList.add('page-turning');
+    
+    // Halfway through rotation (90 deg), swap the content (visually invisible)
+    setTimeout(async () => {
+      await performRender();
+    }, 280);
 
-    indexPageForSearch(page, meta, body);
-  } catch (err) {
-    console.error('Failed to load page:', err);
-    showError();
+    // After animation finishes, clean up turning class
+    setTimeout(() => {
+      els.contentArea.classList.remove('page-turning');
+      activeTransition = false;
+    }, 600);
+  } else {
+    // Initial page load, render immediately without animations
+    showLoading();
+    await performRender();
   }
 }
 
@@ -436,8 +496,8 @@ function renderPageNav(currentId) {
   const prev = idx > 0 ? PAGES[idx - 1] : null;
   const next = idx < PAGES.length - 1 ? PAGES[idx + 1] : null;
   let html = '';
-  if (prev) html += `<a href="#${prev.id}" class="page-nav-btn prev"><span class="nav-btn-label">← PREV SECTOR</span><span class="nav-btn-title">${prev.icon} ${prev.title}</span></a>`;
-  if (next) html += `<a href="#${next.id}" class="page-nav-btn next"><span class="nav-btn-label">NEXT SECTOR →</span><span class="nav-btn-title">${next.icon} ${next.title}</span></a>`;
+  if (prev) html += `<a href="#${prev.id}" class="page-nav-btn prev"><span class="nav-btn-label">← Previous Chapter</span><span class="nav-btn-title">${prev.title}</span></a>`;
+  if (next) html += `<a href="#${next.id}" class="page-nav-btn next"><span class="nav-btn-label">Next Chapter →</span><span class="nav-btn-title">${next.title}</span></a>`;
   els.pageNav.innerHTML = html;
 }
 
@@ -527,19 +587,19 @@ function performSearch(query) {
   searchHighlightIdx = -1;
 
   if (!query || query.trim().length < 2) {
-    resultsEl.innerHTML = `<div class="search-empty">&gt;_ TYPE TO QUERY ALL SECTORS…</div>`;
+    resultsEl.innerHTML = `<div class="search-empty">Type keywords to browse the index page…</div>`;
     return;
   }
 
   if (!fuseInstance) {
-    resultsEl.innerHTML = `<div class="search-empty">&gt;_ INDEX LOADING — RETRY MOMENTARILY…</div>`;
+    resultsEl.innerHTML = `<div class="search-empty">Preparing the index, search again in a moment…</div>`;
     return;
   }
 
   const results = fuseInstance.search(query, { limit: 10 });
 
   if (!results.length) {
-    resultsEl.innerHTML = `<div class="search-empty">&gt;_ NO RESULTS FOR <strong>"${escapeHtml(query)}"</strong> — SECTOR UNKNOWN</div>`;
+    resultsEl.innerHTML = `<div class="search-empty">No entries found for <strong>"${escapeHtml(query)}"</strong> in this journal.</div>`;
     return;
   }
 
@@ -555,7 +615,7 @@ function performSearch(query) {
     const snippet = item.text.slice(0, 110) + (item.text.length > 110 ? '…' : '');
     return `
       <div class="search-result-item" data-page="${item.pageId}" role="option" tabindex="0">
-        <div class="sr-code">[${item.pageCode}] <span class="sr-section-name">${item.pageTitle.toUpperCase()}</span></div>
+        <div class="sr-code">[Chapter ${item.pageCode}] <span class="sr-section-name">${item.pageTitle}</span></div>
         <div class="sr-snippet">&gt; ${escapeHtml(snippet)}</div>
       </div>
     `;
@@ -599,7 +659,7 @@ function openSearch() {
   els.searchOverlay.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   els.searchInput.value = '';
-  els.searchResults.innerHTML = `<div class="search-empty">&gt;_ TYPE TO QUERY ALL SECTORS…</div>`;
+  els.searchResults.innerHTML = `<div class="search-empty">Type keywords to browse the index page…</div>`;
   searchHighlightIdx = -1;
   setTimeout(() => els.searchInput.focus(), 50);
 }
