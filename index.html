@@ -10,89 +10,87 @@
   <meta property="og:description" content="A practical resource hub for Indian tech professionals moving to Denmark." />
   <meta property="og:type" content="website" />
 
-  <!-- Favicon: flag emoji as SVG favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>" />
 
-  <!-- Google Fonts: Inter -->
+  <!-- Fonts: Space Grotesk (display) + Inter (body) + Space Mono (monospace/departure board) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Mobile top bar -->
+  <!-- ===== MOBILE HEADER ===== -->
   <header class="mobile-header" id="mobileHeader">
-    <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation" aria-expanded="false">
       <span class="ham-line"></span>
       <span class="ham-line"></span>
       <span class="ham-line"></span>
     </button>
-    <div class="mobile-logo">
-      <span class="logo-flag">🇮🇳</span>
-      <span class="mobile-logo-text">DID</span>
-    </div>
-    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Toggle search">
+    <a href="#home" class="mobile-brand">
+      <span class="mobile-brand-flag">🇮🇳</span>
+      <span class="mobile-brand-name">DID</span>
+    </a>
+    <button class="mobile-search-trigger" id="mobileSearchBtn" aria-label="Search">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
     </button>
   </header>
 
-  <!-- Sidebar backdrop (mobile) -->
+  <!-- Sidebar backdrop -->
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
   <div class="app-layout">
 
-    <!-- ===== SIDEBAR ===== -->
+    <!-- ===== SIDEBAR — DEPARTURE BOARD STYLE ===== -->
     <nav class="sidebar" id="sidebar" aria-label="Main navigation">
 
-      <div class="sidebar-top">
-        <a href="#home" class="sidebar-logo" id="sidebarLogoLink">
-          <span class="logo-flag">🇮🇳</span>
-          <div class="logo-text-block">
-            <span class="logo-title">DID</span>
-            <span class="logo-subtitle">Desi In Denmark</span>
+      <!-- Brand -->
+      <div class="sidebar-brand">
+        <a href="#home" class="brand-link" id="sidebarLogoLink">
+          <span class="brand-flag">🇮🇳</span>
+          <div class="brand-text">
+            <span class="brand-name">DID</span>
+            <span class="brand-sub">DESI IN DENMARK</span>
           </div>
         </a>
-
-        <!-- Search box -->
-        <div class="search-wrap">
-          <div class="search-box">
-            <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input
-              type="search"
-              id="searchInput"
-              class="search-input"
-              placeholder="Search all topics…"
-              autocomplete="off"
-              aria-label="Search site content"
-            />
-            <kbd class="search-kbd">⌘K</kbd>
-          </div>
-          <div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>
-        </div>
       </div>
 
-      <!-- Nav links -->
-      <ul class="nav-list" id="navList" role="list">
-        <!-- Injected by app.js -->
-      </ul>
+      <!-- Board header row -->
+      <div class="board-header" aria-hidden="true">
+        <span class="board-col-dest">DESTINATION</span>
+        <span class="board-col-status">STATUS</span>
+      </div>
 
-      <div class="sidebar-footer">
-        <div class="footer-line">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      <!-- Navigation links -->
+      <ul class="nav-list" id="navList" role="list"></ul>
+
+      <!-- Search trigger -->
+      <div class="sidebar-search-section">
+        <button class="search-trigger-btn" id="searchTriggerBtn" aria-label="Open search">
+          <svg class="search-trigger-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
-          Always verify at official sources
+          <span class="search-trigger-text">Search all topics</span>
+          <kbd class="search-trigger-kbd">⌘K</kbd>
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <div class="sidebar-footer">
+        <div class="footer-warning">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          Verify at official sources
         </div>
-        <div class="footer-links">
+        <div class="footer-sources">
           <a href="https://www.nyidanmark.dk" target="_blank" rel="noopener">SIRI</a> ·
           <a href="https://www.skat.dk" target="_blank" rel="noopener">SKAT</a> ·
-          <a href="https://www.workindenmark.dk" target="_blank" rel="noopener">WorkInDenmark</a>
+          <a href="https://www.workindenmark.dk" target="_blank" rel="noopener">WorkInDK</a>
         </div>
       </div>
 
@@ -103,21 +101,26 @@
 
       <!-- Loading skeleton -->
       <div class="loading-state" id="loadingState" aria-live="polite">
-        <div class="skeleton skeleton-title"></div>
-        <div class="skeleton skeleton-text"></div>
-        <div class="skeleton skeleton-text short"></div>
-        <div class="skeleton skeleton-text"></div>
-        <div class="skeleton skeleton-text short"></div>
+        <div class="skeleton skeleton-hero"></div>
+        <div class="skeleton-grid">
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
       </div>
 
       <!-- Content area -->
       <article class="content-area" id="contentArea" style="display:none;">
-        <div class="content-meta" id="contentMeta"></div>
         <div class="content-disclaimer" id="contentDisclaimer" style="display:none;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
           </svg>
-          <span>Information on this page may change. Always verify visa rules, tax rates, and government procedures directly at <a href="https://www.nyidanmark.dk" target="_blank" rel="noopener">SIRI</a>, <a href="https://www.skat.dk" target="_blank" rel="noopener">SKAT</a>, and <a href="https://www.workindenmark.dk" target="_blank" rel="noopener">WorkInDenmark</a>.</span>
+          <span>Information on this page may change. Always verify visa rules, tax rates, and government procedures at
+            <a href="https://www.nyidanmark.dk" target="_blank" rel="noopener">SIRI</a>,
+            <a href="https://www.skat.dk" target="_blank" rel="noopener">SKAT</a>, and
+            <a href="https://www.workindenmark.dk" target="_blank" rel="noopener">WorkInDenmark</a>.
+          </span>
         </div>
         <div class="markdown-body" id="markdownBody"></div>
         <div class="content-footer">
@@ -127,23 +130,41 @@
 
       <!-- Error state -->
       <div class="error-state" id="errorState" style="display:none;">
-        <div class="error-icon">⚠️</div>
-        <h2>Page not found</h2>
+        <div class="error-stamp">404</div>
+        <h2>Destination not found</h2>
         <p>This section couldn't be loaded. Try selecting a topic from the sidebar.</p>
-        <a href="#home" class="btn-primary">Go to Home</a>
+        <a href="#home" class="btn-primary">← Return to Arrivals</a>
       </div>
 
     </main>
   </div>
 
-  <!-- Mobile search overlay -->
-  <div class="mobile-search-overlay" id="mobileSearchOverlay">
-    <div class="mobile-search-inner">
-      <div class="mobile-search-header">
-        <input type="search" id="mobileSearchInput" class="mobile-search-field" placeholder="Search topics…" autocomplete="off" />
-        <button class="mobile-search-close" id="mobileSearchClose">Cancel</button>
+  <!-- ===== COMMAND PALETTE / SEARCH OVERLAY ===== -->
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-overlay-backdrop" id="searchOverlayBackdrop"></div>
+    <div class="search-modal">
+      <div class="search-modal-input-row">
+        <svg class="search-modal-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-modal-field"
+          placeholder="Search destinations, topics, guides…"
+          autocomplete="off"
+          aria-label="Search site content"
+          spellcheck="false"
+        />
+        <kbd class="search-esc-key">ESC</kbd>
       </div>
-      <div class="mobile-search-results" id="mobileSearchResults"></div>
+      <div class="search-modal-results" id="searchResults" role="listbox" aria-label="Search results"></div>
+      <div class="search-modal-footer">
+        <span class="search-hint"><kbd>↑↓</kbd> navigate</span>
+        <span class="search-hint"><kbd>↵</kbd> select</span>
+        <span class="search-hint"><kbd>ESC</kbd> close</span>
+        <span class="search-hint-brand">DID · SEARCH</span>
+      </div>
     </div>
   </div>
 
