@@ -659,7 +659,8 @@ body::after {
   gap: var(--s4);
   flex-wrap: wrap;
 }
-.cta-primary, .cta-secondary {
+.markdown-body .cta-primary, 
+.markdown-body .cta-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -669,25 +670,27 @@ body::after {
   text-decoration: none;
   border-radius: var(--r-lg);
   transition: all var(--t);
+  border-bottom: none !important;
 }
-.cta-primary {
+.markdown-body .cta-primary {
   background: var(--ink-accent);
-  color: var(--paper-bg);
+  color: var(--paper-bg) !important;
   box-shadow: 0 4px 10px rgba(180, 83, 9, 0.2);
 }
-.cta-primary:hover {
+.markdown-body .cta-primary:hover {
   transform: translateY(-2px) rotate(1deg);
   background: #9a3412;
+  color: var(--paper-bg) !important;
 }
-.cta-secondary {
+.markdown-body .cta-secondary {
   border: 1px solid var(--paper-border);
-  color: var(--ink-dark);
+  color: var(--ink-dark) !important;
   background: var(--card-bg);
 }
-.cta-secondary:hover {
+.markdown-body .cta-secondary:hover {
   transform: translateY(-2px) rotate(-1deg);
   border-color: var(--ink-accent);
-  color: var(--ink-accent);
+  color: var(--ink-accent) !important;
 }
 
 .hero-compass-wrap {
@@ -748,16 +751,17 @@ body::after {
 }
 
 /* Polaroid Journal entry card layout */
-.sc-card {
+.markdown-body .sc-card {
   background: var(--card-bg);
-  border: 1px solid var(--paper-border);
+  border: 1px solid var(--paper-border) !important;
+  border-bottom: 1px solid var(--paper-border) !important;
   box-shadow: var(--card-shadow);
   border-radius: var(--r-md);
   padding: var(--s4) var(--s4) var(--s5);
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: var(--ink-dark);
+  color: var(--ink-dark) !important;
   transition: all var(--t-md);
   position: relative;
   /* subtle polaroid rotation offset */
