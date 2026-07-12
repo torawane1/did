@@ -1,13 +1,13 @@
 <!-- meta
 title: Money & Tax
 updated: July 2026
-description: Understanding Danish tax (SKAT), your tax card, payslips, pension, ATP, and salary negotiation norms for Indian tech professionals.
+description: Understanding Danish tax (SKAT), your tax card, payslips, pension, ATP, and salary negotiation norms for Indians working or studying in Denmark.
 showDisclaimer: true
 -->
 
 # Money & Tax
 
-Denmark has one of the highest tax rates in the world — and one of the best public services in return. Here's how the system works for Indian tech professionals, and how to avoid the most common surprises.
+Denmark has one of the highest tax rates in the world — and one of the best public services in return. Here's how the system works for Indians living and working in Denmark, and how to avoid the most common surprises.
 
 ---
 

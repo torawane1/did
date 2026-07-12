@@ -1,7 +1,7 @@
 <!-- meta
 title: Home
 updated: July 2026
-description: Welcome to The Arrival Guide – your practical guide to moving, studying, and living in Denmark as an Indian tech professional or student.
+description: Welcome to The Arrival Guide – your practical guide to moving, studying, and living in Denmark as an Indian expat or student.
 showDisclaimer: false
 -->
 
@@ -15,8 +15,8 @@ showDisclaimer: false
 |---|---|
 | 🇩🇰 **Capital** | Copenhagen (Scandinavia's largest tech hub) |
 | 💶 **Currency** | Danish Krone (DKK). 1 EUR ≈ 7.46 DKK (2026) |
-| 🗣️ **Language at work/study** | English — most tech companies and Master's programs operate in English |
-| 💻 **Tech scene** | Fintech (Lunar, Pleo), shipping (Maersk), pharma (Novo Nordisk Digital), gaming (IO Interactive) |
+| 🗣️ **Language at work/study** | English — most companies and Master's programs operate in English |
+| 💻 **Major industries** | Fintech (Lunar, Pleo), shipping (Maersk), pharma (Novo Nordisk), gaming (IO Interactive), cleantech, academia |
 | ⏰ **Timezone** | CET (UTC+1 winter, UTC+2 summer) |
 | 🌡️ **Climate** | Cold winters (0–5°C), mild summers (20–25°C), grey Oct–Mar |
 | 🏥 **Healthcare** | Universal public healthcare — free at point of use after CPR registration |
@@ -58,7 +58,7 @@ Yes — once family reunification is approved, your spouse gets full right to wo
 
 ## About This Site
 
-The Arrival Guide is a community-maintained reference resource, not affiliated with any government body, company, or immigration service. Contributors are Indian tech professionals and students who have gone through this process and want to make it easier for others.
+The Arrival Guide is a community-maintained reference resource, not affiliated with any government body, company, or immigration service. Contributors are Indians — working professionals, students, and long-term residents — who have gone through this process and want to make it easier for others.
 
 Found an error or outdated info? Please open an issue on the [GitHub repository](https://github.com/torawane1/did) — pull requests welcome.
 

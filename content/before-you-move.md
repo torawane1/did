@@ -1,7 +1,7 @@
 <!-- meta
 title: Before You Move
 updated: July 2026
-description: Visa types, required documents, salary negotiation tips, and timeline planning for Indian tech professionals moving to Denmark.
+description: Visa types, required documents, salary negotiation tips, and timeline planning for Indians moving to Denmark for work or study.
 showDisclaimer: true
 -->
 
@@ -11,9 +11,9 @@ Everything you need to know before you book your flight — from choosing the ri
 
 ---
 
-## Visa Types for Tech Workers
+## Visa Types
 
-Denmark has two primary work permit routes relevant to Indian tech professionals. Your employer will usually advise which one applies, but it helps to understand both.
+Denmark has two primary work permit routes for Indians moving for employment. Your employer will usually advise which one applies, but it helps to understand both. If you are moving for studies, see the [Study in Denmark](#student-guide) section for student visa details.
 
 ### 1. The Positive List (Positivlisten)
 

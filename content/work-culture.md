@@ -7,7 +7,7 @@ showDisclaimer: false
 
 # Work Culture
 
-Danish workplace culture is one of the most distinctive aspects of life in Denmark — and one of the most surprising for Indian tech professionals. The differences run deep, and misreading them can create unnecessary friction. This page decodes the key norms.
+Danish workplace culture is one of the most distinctive aspects of life in Denmark — and one of the most surprising for Indians coming from a professional background. The differences run deep, and misreading them can create unnecessary friction. This page decodes the key norms.
 
 ---
 

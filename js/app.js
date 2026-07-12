@@ -360,7 +360,7 @@ function renderHomePage(body) {
             <span class="hero-h1-line1">You've landed.</span>
             <span class="hero-h1-line2">Now navigate what's next.</span>
           </h1>
-          <p class="hero-lead">A handwritten travel journal and resources hub for Indian tech professionals relocating to and settling in Denmark. We've compiled all the scattering advice, checklists, and official links in one readable notebook.</p>
+          <p class="hero-lead">A handwritten travel journal and resources hub for Indians relocating to or studying in Denmark. Whether you're starting a new job or a new degree, we've compiled all the scattered advice, checklists, and official links in one readable notebook.</p>
           <div class="hero-ctas">
             <a href="#before-you-move" class="cta-primary">Before You Move</a>
             <a href="#first-30-days" class="cta-secondary">First 30 Days</a>
@@ -377,7 +377,7 @@ function renderHomePage(body) {
           <span class="hero-stat-label">Indian Expats</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-val">9 chapters</span>
+          <span class="hero-stat-val">11 chapters</span>
           <span class="hero-stat-label">Detailed Guides</span>
         </div>
         <div class="hero-stat">
