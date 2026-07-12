@@ -93,6 +93,24 @@ const PAGES = [
     code: '08',
     sectionLabel: null,
   },
+  {
+    id: 'social-life',
+    title: 'Social Life',
+    icon: 'social-life',
+    file: 'content/social-life.md',
+    desc: 'Meeting Danes, Indian community, hygge, nightlife, festivals, and dating culture',
+    code: '09',
+    sectionLabel: null,
+  },
+  {
+    id: 'driving-license',
+    title: 'Driving Licence',
+    icon: 'driving-license',
+    file: 'content/driving-license.md',
+    desc: 'Indian licence validity, Danish licence process, theory & practical tests, buying a car',
+    code: '10',
+    sectionLabel: null,
+  },
 ];
 
 // ============================================================
@@ -145,6 +163,22 @@ const DOODLE_MAP = {
     <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="9" />
       <polygon points="16 8 13.5 13.5 8 16 10.5 10.5 16 8" />
+    </svg>`,
+  'social-life': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <line x1="9" y1="10" x2="9" y2="10" stroke-width="2" stroke-linecap="round"/>
+      <line x1="12" y1="10" x2="12" y2="10" stroke-width="2" stroke-linecap="round"/>
+      <line x1="15" y1="10" x2="15" y2="10" stroke-width="2" stroke-linecap="round"/>
+    </svg>`,
+  'driving-license': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="3" />
+      <line x1="12" y1="3" x2="12" y2="9" />
+      <line x1="12" y1="15" x2="12" y2="21" />
+      <line x1="3" y1="12" x2="9" y2="12" />
+      <line x1="15" y1="12" x2="21" y2="12" />
     </svg>`
 };
 
