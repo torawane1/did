@@ -58,9 +58,9 @@ Yes — once family reunification is approved, your spouse gets full right to wo
 
 ## About This Site
 
-The Arrival Guide is a community-maintained reference resource, not affiliated with any government body, company, or immigration service. Contributors are Indians — working professionals, students, and long-term residents — who have gone through this process and want to make it easier for others.
+The Arrival Guide is a personal project by [Umesh](https://www.linkedin.com/in/umeshtorawane), built from first-hand experience of relocating to Denmark from India. It is not affiliated with any government body, company, or immigration service. Content was researched and written with the help of AI, and is intended as a practical starting point — not legal or official advice.
 
-Found an error or outdated info? Please open an issue on the [GitHub repository](https://github.com/torawane1/did) — pull requests welcome.
+Found an error or outdated info? Feel free to raise it via the [GitHub repository](https://github.com/torawane1/did).
 
 ---
 
