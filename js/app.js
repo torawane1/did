@@ -111,6 +111,24 @@ const PAGES = [
     code: '10',
     sectionLabel: null,
   },
+  {
+    id: 'family-guide',
+    title: 'Family Guide',
+    icon: 'family-guide',
+    file: 'content/family-guide.md',
+    desc: 'Dependent visas, spousal work rights, childcare, international schools, child benefit',
+    code: '11',
+    sectionLabel: null,
+  },
+  {
+    id: 'india-denmark-history',
+    title: 'India & Denmark: History',
+    icon: 'india-denmark-history',
+    file: 'content/india-denmark-history.md',
+    desc: 'Tranquebar, Danish East India Company, Serampore Mission, and modern bilateral relations',
+    code: '12',
+    sectionLabel: null,
+  },
 ];
 
 // ============================================================
@@ -179,6 +197,18 @@ const DOODLE_MAP = {
       <line x1="12" y1="15" x2="12" y2="21" />
       <line x1="3" y1="12" x2="9" y2="12" />
       <line x1="15" y1="12" x2="21" y2="12" />
+    </svg>`,
+  'family-guide': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>`,
+  'india-denmark-history': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>`
 };
 
@@ -377,7 +407,7 @@ function renderHomePage(body) {
           <span class="hero-stat-label">Indian Expats</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-val">11 chapters</span>
+          <span class="hero-stat-val">13 chapters</span>
           <span class="hero-stat-label">Detailed Guides</span>
         </div>
         <div class="hero-stat">
