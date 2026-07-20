@@ -747,8 +747,19 @@ function parseHash() {
   };
 }
 
+let isInitialRoute = true;
+
 function handleRoute() {
   const { pageId, sectionId } = parseHash();
+  
+  if (isInitialRoute) {
+    isInitialRoute = false;
+    if (sectionId) {
+      window.location.hash = pageId;
+      return;
+    }
+  }
+
   renderPage(pageId, sectionId);
   closeMobileSidebar();
   closeSearch();
