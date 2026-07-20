@@ -13,331 +13,331 @@ A complete table of contents for **The Arrival Guide**. Use this page to see eve
 
 ## Chapter 01 — [Before You Move](#before-you-move)
 
-- Visa Types
-  - The Positive List (Positivlisten)
-  - The Pay Limit Scheme (Beløbsgrænsordningen)
-  - EU Blue Card
-- Required Documents
-  - From You (the applicant)
-  - From Your Employer (they handle this)
-  - Document Attestation Notes
-- Offer Negotiation
-  - Salary Benchmarks (Copenhagen, 2026 estimates)
-  - What's Included in a Danish Package
-  - Negotiation Tips
-- Relocation Timeline
-- Frequently Asked Questions
+- [Visa Types](#before-you-move)
+  - [The Positive List (Positivlisten)](#before-you-move)
+  - [The Pay Limit Scheme (Beløbsgrænsordningen)](#before-you-move)
+  - [EU Blue Card](#before-you-move)
+- [Required Documents](#before-you-move)
+  - [From You (the applicant)](#before-you-move)
+  - [From Your Employer (they handle this)](#before-you-move)
+  - [Document Attestation Notes](#before-you-move)
+- [Offer Negotiation](#before-you-move)
+  - [Salary Benchmarks (Copenhagen, 2026 estimates)](#before-you-move)
+  - [What's Included in a Danish Package](#before-you-move)
+  - [Negotiation Tips](#before-you-move)
+- [Relocation Timeline](#before-you-move)
+- [Frequently Asked Questions](#before-you-move)
 
 ---
 
 ## Chapter 02 — [First 30 Days](#first-30-days)
 
-- The Dependency Chain
-- Step 1: Register Your Address
-- Step 2: CPR Number
-- Step 3: MitID
-- Step 4: Bank Account
-  - Which Bank?
-  - Opening an Account
-  - Practical Banking Tips
-- Step 5: Tax Card (Skattekort)
-- Step 6: SIM Card
-  - Recommended Options
-  - Calling India
-- Step 7: Housing
-  - The Market Reality
-  - Where to Search
-  - Lease Basics
-  - Temporary Housing
-- 30-Day Checklist
-- e-Boks: Your Digital Mailbox
+- [The Dependency Chain](#first-30-days)
+- [Step 1: Register Your Address](#first-30-days)
+- [Step 2: CPR Number](#first-30-days)
+- [Step 3: MitID](#first-30-days)
+- [Step 4: Bank Account](#first-30-days)
+  - [Which Bank?](#first-30-days)
+  - [Opening an Account](#first-30-days)
+  - [Practical Banking Tips](#first-30-days)
+- [Step 5: Tax Card (Skattekort)](#first-30-days)
+- [Step 6: SIM Card](#first-30-days)
+  - [Recommended Options](#first-30-days)
+  - [Calling India](#first-30-days)
+- [Step 7: Housing](#first-30-days)
+  - [The Market Reality](#first-30-days)
+  - [Where to Search](#first-30-days)
+  - [Lease Basics](#first-30-days)
+  - [Temporary Housing](#first-30-days)
+- [30-Day Checklist](#first-30-days)
+- [e-Boks: Your Digital Mailbox](#first-30-days)
 
 ---
 
 ## Chapter 03 — [Money & Tax](#money-and-tax)
 
-- The Big Picture: Tax in Denmark
-- How Danish Income Tax Works
-  - Effective Tax Rate Example
-- SKAT: The Danish Tax Authority
-- Your Tax Card (Skattekort)
-  - Forskudsopgørelse (Preliminary Tax Assessment)
-  - Årsopgørelse (Annual Tax Settlement)
-- Reading Your Payslip
-- Pension in Denmark
-  - Folkepension (State Pension)
-  - ATP (Arbejdsmarkedets Tillægspension)
-  - Occupational Pension (Arbejdsmarkedspension)
-- The Forskerordning (Researcher Tax Scheme)
-- Sending Money to India
-- Common Tax Mistakes to Avoid
-- Useful Resources
+- [The Big Picture: Tax in Denmark](#money-and-tax)
+- [How Danish Income Tax Works](#money-and-tax)
+  - [Effective Tax Rate Example](#money-and-tax)
+- [SKAT: The Danish Tax Authority](#money-and-tax)
+- [Your Tax Card (Skattekort)](#money-and-tax)
+  - [Forskudsopgørelse (Preliminary Tax Assessment)](#money-and-tax)
+  - [Årsopgørelse (Annual Tax Settlement)](#money-and-tax)
+- [Reading Your Payslip](#money-and-tax)
+- [Pension in Denmark](#money-and-tax)
+  - [Folkepension (State Pension)](#money-and-tax)
+  - [ATP (Arbejdsmarkedets Tillægspension)](#money-and-tax)
+  - [Occupational Pension (Arbejdsmarkedspension)](#money-and-tax)
+- [The Forskerordning (Researcher Tax Scheme)](#money-and-tax)
+- [Sending Money to India](#money-and-tax)
+- [Common Tax Mistakes to Avoid](#money-and-tax)
+- [Useful Resources](#money-and-tax)
 
 ---
 
 ## Chapter 04 — [Daily Life](#daily-life)
 
-- Indian Grocery Stores
-  - Copenhagen
-  - Aarhus
-  - Odense
-- Indian Community & Social Groups
-  - Online Communities
-  - Cultural Organisations
-  - Indian Restaurants (Copenhagen)
-- Healthcare System
-  - Registering with a GP (Læge)
-  - How the System Works
-  - Dental Care
-  - Prescriptions
-  - Mental Health
-- Seasonal & Weather Tips
-  - The Four Seasons
-  - Surviving Winter
-  - Seasonal Affective Disorder (SAD)
-  - Summer in Denmark
-- Transportation
-  - Cycling
-  - Public Transport
-  - Driving
-- Useful Apps for Daily Life
+- [Indian Grocery Stores](#daily-life)
+  - [Copenhagen](#daily-life)
+  - [Aarhus](#daily-life)
+  - [Odense](#daily-life)
+- [Indian Community & Social Groups](#daily-life)
+  - [Online Communities](#daily-life)
+  - [Cultural Organisations](#daily-life)
+  - [Indian Restaurants (Copenhagen)](#daily-life)
+- [Healthcare System](#daily-life)
+  - [Registering with a GP (Læge)](#daily-life)
+  - [How the System Works](#daily-life)
+  - [Dental Care](#daily-life)
+  - [Prescriptions](#daily-life)
+  - [Mental Health](#daily-life)
+- [Seasonal & Weather Tips](#daily-life)
+  - [The Four Seasons](#daily-life)
+  - [Surviving Winter](#daily-life)
+  - [Seasonal Affective Disorder (SAD)](#daily-life)
+  - [Summer in Denmark](#daily-life)
+- [Transportation](#daily-life)
+  - [Cycling](#daily-life)
+  - [Public Transport](#daily-life)
+  - [Driving](#daily-life)
+- [Useful Apps for Daily Life](#daily-life)
 
 ---
 
 ## Chapter 05 — [Work Culture](#work-culture)
 
-- Flat Hierarchy: What It Really Means
-  - What flat hierarchy means in practice
-  - What it does NOT mean
-- Communication Style
-  - Directness
-  - What might surprise you
-  - Email and Slack norms
-- Work-Life Balance
-  - Working hours
-  - Leave culture
-  - After-work culture
-- Unions (Fagforening)
-  - Why unions matter
-  - Relevant unions for Indian tech workers
-  - What unions provide
-  - A-kasse (Unemployment Insurance)
-- Notice Periods
-  - Typical notice periods
-  - What this means practically
-  - During your notice period
-- Meeting Culture
-- Danish Language at Work
+- [Flat Hierarchy: What It Really Means](#work-culture)
+  - [What flat hierarchy means in practice](#work-culture)
+  - [What it does NOT mean](#work-culture)
+- [Communication Style](#work-culture)
+  - [Directness](#work-culture)
+  - [What might surprise you](#work-culture)
+  - [Email and Slack norms](#work-culture)
+- [Work-Life Balance](#work-culture)
+  - [Working hours](#work-culture)
+  - [Leave culture](#work-culture)
+  - [After-work culture](#work-culture)
+- [Unions (Fagforening)](#work-culture)
+  - [Why unions matter](#work-culture)
+  - [Relevant unions for Indian tech workers](#work-culture)
+  - [What unions provide](#work-culture)
+  - [A-kasse (Unemployment Insurance)](#work-culture)
+- [Notice Periods](#work-culture)
+  - [Typical notice periods](#work-culture)
+  - [What this means practically](#work-culture)
+  - [During your notice period](#work-culture)
+- [Meeting Culture](#work-culture)
+- [Danish Language at Work](#work-culture)
 
 ---
 
 ## Chapter 06 — [Long Term](#long-term)
 
-- Permanent Residency (Permanent Opholdstilladelse)
-  - The Standard Path
-  - Fast-track Path (3 Years)
-  - Maintaining Your Permit While Working Towards PR
-- The Danish Language Requirement
-  - Danish Language Courses
-  - Practical Tips
-  - The Tests
-- Family Reunification (Family Dependent Visas)
-  - Spouse / Partner
-  - Dependent Children
-  - Processing Times
-- Citizenship (Statsborgerskab)
-  - Eligibility Timeline
-  - Requirements for Citizenship
-  - India Does Not Allow Dual Citizenship
-- Schooling for Children
-  - Ages and Levels
-  - Practical Considerations
-  - Childcare Costs and Subsidies
-- Planning Ahead: A Long-Term Roadmap
-- Useful Resources
+- [Permanent Residency (Permanent Opholdstilladelse)](#long-term)
+  - [The Standard Path](#long-term)
+  - [Fast-track Path (3 Years)](#long-term)
+  - [Maintaining Your Permit While Working Towards PR](#long-term)
+- [The Danish Language Requirement](#long-term)
+  - [Danish Language Courses](#long-term)
+  - [Practical Tips](#long-term)
+  - [The Tests](#long-term)
+- [Family Reunification (Family Dependent Visas)](#long-term)
+  - [Spouse / Partner](#long-term)
+  - [Dependent Children](#long-term)
+  - [Processing Times](#long-term)
+- [Citizenship (Statsborgerskab)](#long-term)
+  - [Eligibility Timeline](#long-term)
+  - [Requirements for Citizenship](#long-term)
+  - [India Does Not Allow Dual Citizenship](#long-term)
+- [Schooling for Children](#long-term)
+  - [Ages and Levels](#long-term)
+  - [Practical Considerations](#long-term)
+  - [Childcare Costs and Subsidies](#long-term)
+- [Planning Ahead: A Long-Term Roadmap](#long-term)
+- [Useful Resources](#long-term)
 
 ---
 
 ## Chapter 07 — [Study in Denmark](#student-guide)
 
-- Choosing Your Degree
-  - Bachelor's Degrees
-  - Master's Degrees (Kandidat)
-- Top Universities in Denmark
-- Admission Process & Deadlines
-  - Key Deadlines
-  - Application Portals
-  - Core Documents Needed
-- Tuition Fees & Scholarships
-  - Tuition Fees
-  - Scholarships & Funding
-- Student Residence Permit (Visa)
-  - Visa Checklist
-  - Working While Studying
-- Student Accommodation & Dormitories (Kollegier)
-  - Student Housing Portals (Kollegier)
-  - Private Rentals & Short-term Housing
-- Post-Graduation: The 3-Year Job-Seeking Permit
+- [Choosing Your Degree](#student-guide)
+  - [Bachelor's Degrees](#student-guide)
+  - [Master's Degrees (Kandidat)](#student-guide)
+- [Top Universities in Denmark](#student-guide)
+- [Admission Process & Deadlines](#student-guide)
+  - [Key Deadlines](#student-guide)
+  - [Application Portals](#student-guide)
+  - [Core Documents Needed](#student-guide)
+- [Tuition Fees & Scholarships](#student-guide)
+  - [Tuition Fees](#student-guide)
+  - [Scholarships & Funding](#student-guide)
+- [Student Residence Permit (Visa)](#student-guide)
+  - [Visa Checklist](#student-guide)
+  - [Working While Studying](#student-guide)
+- [Student Accommodation & Dormitories (Kollegier)](#student-guide)
+  - [Student Housing Portals (Kollegier)](#student-guide)
+  - [Private Rentals & Short-term Housing](#student-guide)
+- [Post-Graduation: The 3-Year Job-Seeking Permit](#student-guide)
 
 ---
 
 ## Chapter 08 — [Tourism & Travel](#tourism)
 
-- Must-Visit Attractions: Copenhagen
-  - Iconic Sights
-  - Free or Budget Experiences in the Capital
-- Must-Visit Attractions: Outside Copenhagen
-  - Royal Castles & Viking History (Zealand)
-  - Nature & Landscapes
-  - Beyond Zealand (Aarhus, Odense & Jutland)
-- Student Discounts & Saving Money
-  - Sightseeing & Culture
-  - Apps & Food Deals
-  - Public Transport Discounts
-- What to Prepare
-- What to Be Aware Of (Warnings & Pitfalls)
+- [Must-Visit Attractions: Copenhagen](#tourism)
+  - [Iconic Sights](#tourism)
+  - [Free or Budget Experiences in the Capital](#tourism)
+- [Must-Visit Attractions: Outside Copenhagen](#tourism)
+  - [Royal Castles & Viking History (Zealand)](#tourism)
+  - [Nature & Landscapes](#tourism)
+  - [Beyond Zealand (Aarhus, Odense & Jutland)](#tourism)
+- [Student Discounts & Saving Money](#tourism)
+  - [Sightseeing & Culture](#tourism)
+  - [Apps & Food Deals](#tourism)
+  - [Public Transport Discounts](#tourism)
+- [What to Prepare](#tourism)
+- [What to Be Aware Of (Warnings & Pitfalls)](#tourism)
 
 ---
 
 ## Chapter 09 — [Social Life](#social-life)
 
-- Understanding Danish Social Culture
-  - The Famous "Danish Reserve"
-- Finding the Indian & South Asian Community
-  - Online Communities
-  - Cultural & Religious Organisations
-  - Indian Expat Meetups
-- Meeting Danes & International Friends
-  - Evening Courses (Aftenskole)
-  - Sports & Fitness Clubs
-  - Volunteering
-  - Expat Networks
-- Social Norms & Etiquette
-  - Visiting Danish Homes
-  - Alcohol & Social Life
-  - The Art of Hygge
-- Nightlife & Going Out
-  - Copenhagen
-  - Aarhus Nightlife
-  - Cost of Going Out
-- Festivals & Danish Celebrations
-  - Major Danish Cultural Events
-  - Christmas Markets
-  - Indian Festivals in Denmark
-- Danish Language & Social Integration
-- Relationships & Dating in Denmark
-  - Dating Culture
-  - Intercultural Relationships
-- Practical Social Tips
+- [Understanding Danish Social Culture](#social-life)
+  - [The Famous "Danish Reserve"](#social-life)
+- [Finding the Indian & South Asian Community](#social-life)
+  - [Online Communities](#social-life)
+  - [Cultural & Religious Organisations](#social-life)
+  - [Indian Expat Meetups](#social-life)
+- [Meeting Danes & International Friends](#social-life)
+  - [Evening Courses (Aftenskole)](#social-life)
+  - [Sports & Fitness Clubs](#social-life)
+  - [Volunteering](#social-life)
+  - [Expat Networks](#social-life)
+- [Social Norms & Etiquette](#social-life)
+  - [Visiting Danish Homes](#social-life)
+  - [Alcohol & Social Life](#social-life)
+  - [The Art of Hygge](#social-life)
+- [Nightlife & Going Out](#social-life)
+  - [Copenhagen](#social-life)
+  - [Aarhus Nightlife](#social-life)
+  - [Cost of Going Out](#social-life)
+- [Festivals & Danish Celebrations](#social-life)
+  - [Major Danish Cultural Events](#social-life)
+  - [Christmas Markets](#social-life)
+  - [Indian Festivals in Denmark](#social-life)
+- [Danish Language & Social Integration](#social-life)
+- [Relationships & Dating in Denmark](#social-life)
+  - [Dating Culture](#social-life)
+  - [Intercultural Relationships](#social-life)
+- [Practical Social Tips](#social-life)
 
 ---
 
 ## Chapter 10 — [Driving Licence](#driving-license)
 
-- Indian Licence Validity in Denmark
-  - What the Rules Say
-  - International Driving Permit (IDP)
-- The Danish Driving Licence Process
-  - Overview of the Full Process
-- Step 1: Enrol in a Driving School
-- Step 2: Theory Lessons
-- Step 3: Mandatory Practical Lessons
-- Step 4: The Theory Test (Teoriprøve)
-- Step 5: First Aid Course (Førstehjælpskursus)
-- Step 6: The Practical Test (Køreprøve)
-- Step 7: Receiving Your Licence
-- Driving Rules in Denmark
-  - Speed Limits
-  - Key Rules of the Road
-  - Parking Rules
-- Buying a Car in Denmark
-  - Registration Tax (Registreringsafgift)
-  - Buying a Used Car
-  - Insurance
-  - Fuel & Running Costs
-- Cycling vs. Driving
-- Useful Links
+- [Indian Licence Validity in Denmark](#driving-license)
+  - [What the Rules Say](#driving-license)
+  - [International Driving Permit (IDP)](#driving-license)
+- [The Danish Driving Licence Process](#driving-license)
+  - [Overview of the Full Process](#driving-license)
+- [Step 1: Enrol in a Driving School](#driving-license)
+- [Step 2: Theory Lessons](#driving-license)
+- [Step 3: Mandatory Practical Lessons](#driving-license)
+- [Step 4: The Theory Test (Teoriprøve)](#driving-license)
+- [Step 5: First Aid Course (Førstehjælpskursus)](#driving-license)
+- [Step 6: The Practical Test (Køreprøve)](#driving-license)
+- [Step 7: Receiving Your Licence](#driving-license)
+- [Driving Rules in Denmark](#driving-license)
+  - [Speed Limits](#driving-license)
+  - [Key Rules of the Road](#driving-license)
+  - [Parking Rules](#driving-license)
+- [Buying a Car in Denmark](#driving-license)
+  - [Registration Tax (Registreringsafgift)](#driving-license)
+  - [Buying a Used Car](#driving-license)
+  - [Insurance](#driving-license)
+  - [Fuel & Running Costs](#driving-license)
+- [Cycling vs. Driving](#driving-license)
+- [Useful Links](#driving-license)
 
 ---
 
 ## Chapter 11 — [Family Guide](#family-guide)
 
-- Bringing Your Family to Denmark
-  - Who Qualifies as a Dependent?
-  - Family Reunification (Familiesammenføring)
-  - Application Process
-  - Spouses: Right to Work
-  - Children's Residence Permit
-- Healthcare for Families
-- Daycare & Childcare in Denmark
-  - Understanding the Danish Childcare System
-  - Types of Childcare
-    - Vuggestue (Nursery) — In Detail
-    - Dagpleje (Childminder) — In Detail
-    - Børnehave (Kindergarten) — In Detail
-    - Integreret Institution (Integrated Institution)
-  - The Settling-In Period (Indkøring)
-  - A Typical Day in Danish Daycare
-  - Food & Meals in Daycare
-  - Costs & Subsidies
-  - How to Apply for a Childcare Place
-    - Step-by-Step Registration
-    - Waiting Times
-    - Your Legal Right: The Childcare Guarantee (Pasningsgaranti)
-  - Choosing Between Daycare Options
-  - Private Daycare Options
-    - Private Institutions (Privatinstitutioner)
-    - Private Childminding (Privat Pasning)
-    - International / Bilingual Daycare
-  - Language Considerations for Indian Families
-  - What to Bring / Prepare for Daycare
-  - Sick Child Policies (Sygdomspolitik)
-  - Holiday Closures & Reduced Hours
-  - Parent Involvement & Communication
-  - Transitioning Between Daycare Stages
-  - Practical Tips for Indian Families
-- Schools in Denmark
-  - The Danish Public School System (Folkeskole)
-- International Schools in Denmark
-  - Copenhagen
-  - Employer-Sponsored School Fees
-  - Aarhus
-  - Odense & Smaller Cities
-- After-School Activities for Children
-- Housing Considerations for Families
-  - Space Requirements
-  - Family-Friendly Areas in Copenhagen
-- Financial Benefits for Families
-  - Børne- og Ungeydelse (Child Benefit)
-  - Maternity & Paternity Leave
-- Useful Resources for Families
+- [Bringing Your Family to Denmark](#family-guide)
+  - [Who Qualifies as a Dependent?](#family-guide)
+  - [Family Reunification (Familiesammenføring)](#family-guide)
+  - [Application Process](#family-guide)
+  - [Spouses: Right to Work](#family-guide)
+  - [Children's Residence Permit](#family-guide)
+- [Healthcare for Families](#family-guide)
+- [Daycare & Childcare in Denmark](#family-guide)
+  - [Understanding the Danish Childcare System](#family-guide)
+  - [Types of Childcare](#family-guide)
+    - [Vuggestue (Nursery) — In Detail](#family-guide)
+    - [Dagpleje (Childminder) — In Detail](#family-guide)
+    - [Børnehave (Kindergarten) — In Detail](#family-guide)
+    - [Integreret Institution (Integrated Institution)](#family-guide)
+  - [The Settling-In Period (Indkøring)](#family-guide)
+  - [A Typical Day in Danish Daycare](#family-guide)
+  - [Food & Meals in Daycare](#family-guide)
+  - [Costs & Subsidies](#family-guide)
+  - [How to Apply for a Childcare Place](#family-guide)
+    - [Step-by-Step Registration](#family-guide)
+    - [Waiting Times](#family-guide)
+    - [Your Legal Right: The Childcare Guarantee (Pasningsgaranti)](#family-guide)
+  - [Choosing Between Daycare Options](#family-guide)
+  - [Private Daycare Options](#family-guide)
+    - [Private Institutions (Privatinstitutioner)](#family-guide)
+    - [Private Childminding (Privat Pasning)](#family-guide)
+    - [International / Bilingual Daycare](#family-guide)
+  - [Language Considerations for Indian Families](#family-guide)
+  - [What to Bring / Prepare for Daycare](#family-guide)
+  - [Sick Child Policies (Sygdomspolitik)](#family-guide)
+  - [Holiday Closures & Reduced Hours](#family-guide)
+  - [Parent Involvement & Communication](#family-guide)
+  - [Transitioning Between Daycare Stages](#family-guide)
+  - [Practical Tips for Indian Families](#family-guide)
+- [Schools in Denmark](#family-guide)
+  - [The Danish Public School System (Folkeskole)](#family-guide)
+- [International Schools in Denmark](#family-guide)
+  - [Copenhagen](#family-guide)
+  - [Employer-Sponsored School Fees](#family-guide)
+  - [Aarhus](#family-guide)
+  - [Odense & Smaller Cities](#family-guide)
+- [After-School Activities for Children](#family-guide)
+- [Housing Considerations for Families](#family-guide)
+  - [Space Requirements](#family-guide)
+  - [Family-Friendly Areas in Copenhagen](#family-guide)
+- [Financial Benefits for Families](#family-guide)
+  - [Børne- og Ungeydelse (Child Benefit)](#family-guide)
+  - [Maternity & Paternity Leave](#family-guide)
+- [Useful Resources for Families](#family-guide)
 
 ---
 
 ## Chapter 12 — [India & Denmark: History](#india-denmark-history)
 
-- The Danish East India Company & Colonial India
-  - The Danish East India Company (1616)
-  - Tranquebar (Tharangambadi): Denmark's Indian Colony
-  - Dansborg Fort
-  - What Denmark Traded in India
-  - Serampore (Frederiksnagore) — Danish Bengal
-- The Nicobar Islands: Denmark's Other Indian Ocean Territory
-- Danish Missionaries and the Tranquebar Mission
-  - The Tranquebar Mission (1706)
-  - The Legacy of the Tranquebar Mission
-- The Sale of Danish India (1845)
-- Modern India–Denmark Relations
-  - Diplomatic History
-  - The Green Strategic Partnership (2020)
-  - Trade and Economic Ties
-  - Political and Strategic Relations
-- Cultural Connections
-  - Indian Community in Denmark
-  - Danish Interest in Indian Culture
-  - Tranquebar Today: A Living Heritage Site
-- Key Figures in India–Denmark History
-- Fast Facts: India–Denmark Historical Timeline
+- [The Danish East India Company & Colonial India](#india-denmark-history)
+  - [The Danish East India Company (1616)](#india-denmark-history)
+  - [Tranquebar (Tharangambadi): Denmark's Indian Colony](#india-denmark-history)
+  - [Dansborg Fort](#india-denmark-history)
+  - [What Denmark Traded in India](#india-denmark-history)
+  - [Serampore (Frederiksnagore) — Danish Bengal](#india-denmark-history)
+- [The Nicobar Islands: Denmark's Other Indian Ocean Territory](#india-denmark-history)
+- [Danish Missionaries and the Tranquebar Mission](#india-denmark-history)
+  - [The Tranquebar Mission (1706)](#india-denmark-history)
+  - [The Legacy of the Tranquebar Mission](#india-denmark-history)
+- [The Sale of Danish India (1845)](#india-denmark-history)
+- [Modern India–Denmark Relations](#india-denmark-history)
+  - [Diplomatic History](#india-denmark-history)
+  - [The Green Strategic Partnership (2020)](#india-denmark-history)
+  - [Trade and Economic Ties](#india-denmark-history)
+  - [Political and Strategic Relations](#india-denmark-history)
+- [Cultural Connections](#india-denmark-history)
+  - [Indian Community in Denmark](#india-denmark-history)
+  - [Danish Interest in Indian Culture](#india-denmark-history)
+  - [Tranquebar Today: A Living Heritage Site](#india-denmark-history)
+- [Key Figures in India–Denmark History](#india-denmark-history)
+- [Fast Facts: India–Denmark Historical Timeline](#india-denmark-history)
 
 ---
 
