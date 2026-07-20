@@ -116,7 +116,7 @@ const PAGES = [
     title: 'Family Guide',
     icon: 'family-guide',
     file: 'content/family-guide.md',
-    desc: 'Dependent visas, spousal work rights, childcare, international schools, child benefit',
+    desc: 'Dependent visas, spousal work rights, daycare (vuggestue, dagpleje, børnehave), daily routines, international schools, child benefit',
     code: '11',
     sectionLabel: null,
   },
