@@ -262,6 +262,7 @@ let fuseInstance = null;
 let searchIndex = [];
 let searchHighlightIdx = -1;
 let activeTransition = false;
+let currentPageId = null;
 
 // ============================================================
 // DOM REFERENCES
@@ -292,6 +293,35 @@ const els = {
 // ============================================================
 
 marked.setOptions({ breaks: true, gfm: true });
+
+// ============================================================
+// HEADING ID UTILITIES (for deep-linking)
+// ============================================================
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/<[^>]+>/g, '')       // strip HTML tags
+    .replace(/[^\w\s-]/g, '')      // remove special chars except hyphens
+    .replace(/\s+/g, '-')          // spaces → hyphens
+    .replace(/-+/g, '-')           // collapse multiple hyphens
+    .replace(/^-+|-+$/g, '');      // trim leading/trailing hyphens
+}
+
+function addHeadingIds(container) {
+  const usedIds = new Set();
+  container.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(heading => {
+    let id = slugify(heading.textContent);
+    // Ensure uniqueness
+    let uniqueId = id;
+    let counter = 1;
+    while (usedIds.has(uniqueId)) {
+      uniqueId = `${id}-${counter++}`;
+    }
+    usedIds.add(uniqueId);
+    heading.id = uniqueId;
+  });
+}
 
 // ============================================================
 // FRONTMATTER PARSER
@@ -499,9 +529,20 @@ function renderSectionPage(page, meta, body) {
 // RENDER PAGE WITH 3D PAGE-FLIP TRANSITION
 // ============================================================
 
-async function renderPage(pageId) {
+async function renderPage(pageId, sectionId) {
   const page = PAGES.find(p => p.id === pageId);
   if (!page) { showError(); return; }
+
+  // Fast-path: if we're already on this page, just scroll to the section
+  if (currentPageId === pageId && sectionId) {
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.classList.add('heading-highlight');
+      setTimeout(() => target.classList.remove('heading-highlight'), 2000);
+    }
+    return;
+  }
 
   // If already transitioning, skip duplicate triggers
   if (activeTransition) return;
@@ -527,7 +568,22 @@ async function renderPage(pageId) {
 
       renderPageNav(pageId);
       showContent();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      addHeadingIds(els.markdownBody);
+
+      if (sectionId) {
+        // Scroll to the target section after a brief delay for DOM paint
+        setTimeout(() => {
+          const target = document.getElementById(sectionId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Brief highlight effect
+            target.classList.add('heading-highlight');
+            setTimeout(() => target.classList.remove('heading-highlight'), 2000);
+          }
+        }, 120);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       
       // Page Numbering Injection
       let pgNumEl = document.querySelector('.diary-page-number');
@@ -539,6 +595,7 @@ async function renderPage(pageId) {
       pgNumEl.textContent = `Page ${page.code}`;
 
       indexPageForSearch(page, meta, body);
+      currentPageId = pageId;
     } catch (err) {
       console.error('Failed to load page:', err);
       showError();
@@ -605,13 +662,26 @@ function showError() {
 // HASH ROUTER
 // ============================================================
 
-function getPageFromHash() {
+function parseHash() {
   const hash = window.location.hash.slice(1);
-  return PAGES.find(p => p.id === hash) ? hash : 'home';
+  const sepIdx = hash.indexOf(':');
+  if (sepIdx !== -1) {
+    const pageId = hash.slice(0, sepIdx);
+    const sectionId = hash.slice(sepIdx + 1);
+    return {
+      pageId: PAGES.find(p => p.id === pageId) ? pageId : 'home',
+      sectionId: sectionId || null
+    };
+  }
+  return {
+    pageId: PAGES.find(p => p.id === hash) ? hash : 'home',
+    sectionId: null
+  };
 }
 
 function handleRoute() {
-  renderPage(getPageFromHash());
+  const { pageId, sectionId } = parseHash();
+  renderPage(pageId, sectionId);
   closeMobileSidebar();
   closeSearch();
 }

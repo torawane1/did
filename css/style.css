@@ -1314,3 +1314,16 @@ body::after {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   DEEP-LINK HEADING HIGHLIGHT
+   ============================================================ */
+.heading-highlight {
+  animation: heading-flash 2s ease-out;
+  border-radius: 4px;
+}
+
+@keyframes heading-flash {
+  0%   { background-color: rgba(180, 83, 9, 0.25); }
+  100% { background-color: transparent; }
+}
