@@ -22,13 +22,22 @@ const PAGES = [
     isHome: true,
   },
   {
+    id: 'site-index',
+    title: 'Site Index',
+    icon: 'site-index',
+    file: 'content/site-index.md',
+    desc: 'Complete table of contents — every chapter and section at a glance',
+    code: 'IX',
+    sectionLabel: 'JOURNAL SECTIONS',
+  },
+  {
     id: 'before-you-move',
     title: 'Before You Move',
     icon: 'before-you-move',
     file: 'content/before-you-move.md',
     desc: 'Visa types, required documents, salary negotiation, timeline',
     code: '01',
-    sectionLabel: 'JOURNAL SECTIONS',
+    sectionLabel: null,
   },
   {
     id: 'first-30-days',
@@ -136,6 +145,13 @@ const PAGES = [
 // ============================================================
 
 const DOODLE_MAP = {
+  'site-index': `
+    <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" />
+      <line x1="3" y1="6" x2="3.01" y2="6" stroke-width="2" stroke-linecap="round" />
+      <line x1="3" y1="12" x2="3.01" y2="12" stroke-width="2" stroke-linecap="round" />
+      <line x1="3" y1="18" x2="3.01" y2="18" stroke-width="2" stroke-linecap="round" />
+    </svg>`,
   'home': `
     <svg viewBox="0 0 24 24" class="doodle-icon" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5L4 4.5A2.5 2.5 0 0 1 6.5 2M6.5 2H20v20H6.5" />
@@ -407,7 +423,7 @@ function renderHomePage(body) {
           <span class="hero-stat-label">Indian Expats</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-val">13 chapters</span>
+          <span class="hero-stat-val">14 chapters</span>
           <span class="hero-stat-label">Detailed Guides</span>
         </div>
         <div class="hero-stat">
