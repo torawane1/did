@@ -365,12 +365,20 @@ function buildNav() {
     const doodle = DOODLE_MAP[page.icon] || '';
     const num = String(idx).padStart(2, '0');
     html += `
-      <li class="nav-item">
-        <a href="#${page.id}" class="nav-link" data-page="${page.id}" id="nav-${page.id}">
-          <span class="nav-num">${num}</span>
-          <span class="nav-icon-wrap" aria-hidden="true">${doodle}</span>
-          <span class="nav-label">${page.title}</span>
-        </a>
+      <li class="nav-item" id="nav-item-${page.id}">
+        <div class="nav-link-row">
+          <a href="#${page.id}" class="nav-link" data-page="${page.id}" id="nav-${page.id}">
+            <span class="nav-num">${num}</span>
+            <span class="nav-icon-wrap" aria-hidden="true">${doodle}</span>
+            <span class="nav-label">${page.title}</span>
+          </a>
+          <button class="nav-sub-toggle" data-page="${page.id}" aria-label="Toggle Subsections">
+            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="toggle-arrow">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <ul class="nav-sub-list" id="nav-sub-${page.id}"></ul>
       </li>
     `;
   }
@@ -378,11 +386,69 @@ function buildNav() {
   els.navList.innerHTML = html;
 }
 
-function setActiveNav(pageId) {
+function setActiveNav(pageId, sectionId) {
+  // 1. Manage active class on main links
   document.querySelectorAll('.nav-link').forEach(link => {
     const active = link.dataset.page === pageId;
     link.classList.toggle('active', active);
   });
+
+  // 2. Manage active class on sub links
+  document.querySelectorAll('.nav-sub-link').forEach(link => {
+    const active = link.dataset.page === pageId && link.dataset.section === sectionId;
+    link.classList.toggle('active', active);
+  });
+
+  // 3. Manage expanded class on nav items (expand active page, collapse others)
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const isCurrentPageItem = item.id === `nav-item-${pageId}`;
+    if (isCurrentPageItem) {
+      item.classList.add('expanded');
+    } else {
+      item.classList.remove('expanded');
+    }
+  });
+}
+
+function populateSubsections(pageId, body) {
+  const subListEl = document.getElementById(`nav-sub-${pageId}`);
+  if (!subListEl) return;
+  
+  // If already populated, don't duplicate
+  if (subListEl.children.length > 0) return;
+
+  const subsections = [];
+  const lines = body.split('\n');
+  const usedIds = new Set();
+  
+  for (const line of lines) {
+    const match = line.match(/^##\s+(.+)$/);
+    if (match) {
+      const title = match[1];
+      // Strip markdown links if any in the heading title
+      const cleanTitle = title.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim();
+      let id = slugify(cleanTitle);
+      let uniqueId = id;
+      let counter = 1;
+      while (usedIds.has(uniqueId)) {
+        uniqueId = `${id}-${counter++}`;
+      }
+      usedIds.add(uniqueId);
+      subsections.push({ title: cleanTitle, id: uniqueId });
+    }
+  }
+
+  let html = '';
+  for (const sub of subsections) {
+    html += `
+      <li class="nav-sub-item">
+        <a href="#${pageId}:${sub.id}" class="nav-sub-link" data-page="${pageId}" data-section="${sub.id}">
+          ${sub.title}
+        </a>
+      </li>
+    `;
+  }
+  subListEl.innerHTML = html;
 }
 
 // ============================================================
@@ -535,6 +601,7 @@ async function renderPage(pageId, sectionId) {
 
   // Fast-path: if we're already on this page, just scroll to the section
   if (currentPageId === pageId && sectionId) {
+    setActiveNav(pageId, sectionId);
     const target = document.getElementById(sectionId);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -548,7 +615,7 @@ async function renderPage(pageId, sectionId) {
   if (activeTransition) return;
 
   const performRender = async () => {
-    setActiveNav(pageId);
+    setActiveNav(pageId, sectionId);
     document.title = page.isHome
       ? 'The Arrival Guide | Denmark Relocation & Study Hub'
       : `${page.title} | The Arrival Guide`;
@@ -564,6 +631,7 @@ async function renderPage(pageId, sectionId) {
         renderHomePage(body);
       } else {
         renderSectionPage(page, meta, body);
+        populateSubsections(pageId, body);
       }
 
       renderPageNav(pageId);
@@ -728,6 +796,9 @@ async function preloadAllForSearch() {
       const raw = await fetchMarkdown(page.file);
       const { meta, body } = parseFrontmatter(raw);
       indexPageForSearch(page, meta, body);
+      if (page.id !== 'home') {
+        populateSubsections(page.id, body);
+      }
     } catch { /* skip */ }
   }
 }
@@ -887,6 +958,19 @@ function bindEvents() {
     if (href && href.startsWith('http')) {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+
+  // Delegated sublist toggle click handler
+  els.navList.addEventListener('click', e => {
+    const toggleBtn = e.target.closest('.nav-sub-toggle');
+    if (toggleBtn) {
+      e.preventDefault();
+      const pageId = toggleBtn.dataset.page;
+      const navItem = document.getElementById(`nav-item-${pageId}`);
+      if (navItem) {
+        navItem.classList.toggle('expanded');
+      }
     }
   });
 }

@@ -366,6 +366,13 @@ body::after {
 }
 .nav-item { display: block; }
 
+.nav-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .nav-link {
   display: flex;
   align-items: center;
@@ -378,6 +385,7 @@ body::after {
   border-radius: var(--r-md);
   transition: all var(--t);
   position: relative;
+  flex: 1;
 }
 .nav-num {
   font-family: var(--font-mono);
@@ -397,6 +405,84 @@ body::after {
 }
 .nav-label {
   flex: 1;
+}
+
+.nav-sub-toggle {
+  background: none;
+  border: none;
+  color: var(--ink-dim);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-md);
+  transition: all var(--t);
+  margin-right: var(--s2);
+}
+.nav-sub-toggle:hover {
+  background: rgba(180, 83, 9, 0.05);
+  color: var(--ink-accent);
+}
+.toggle-arrow {
+  transition: transform var(--t-md) ease;
+}
+.nav-item.expanded .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* Nav Sub List (collapsible) */
+.nav-sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: calc(var(--s4) + 20px + var(--s3)); /* Indent matching start of label */
+}
+.nav-item.expanded .nav-sub-list {
+  max-height: 1000px; /* high value to fit longest TOC */
+  margin-bottom: var(--s2);
+}
+.nav-sub-item {
+  position: relative;
+  padding-left: 12px;
+}
+.nav-sub-item::before {
+  content: '·';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-dim);
+  font-weight: bold;
+}
+.nav-sub-link {
+  display: block;
+  padding: 2px var(--s2);
+  text-decoration: none;
+  color: var(--ink-dim);
+  font-family: var(--font-handwritten);
+  font-size: 1.05rem;
+  border-radius: var(--r-sm);
+  transition: all var(--t);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-sub-link:hover {
+  color: var(--ink-accent);
+  background: rgba(180, 83, 9, 0.03);
+  padding-left: var(--s3);
+}
+.nav-sub-link.active {
+  color: var(--ink-accent);
+  font-weight: 700;
+}
+.nav-sub-link.active::after {
+  content: ' ✎';
+  font-size: 0.85rem;
 }
 
 /* Hover/Active states in Journal TOC */
